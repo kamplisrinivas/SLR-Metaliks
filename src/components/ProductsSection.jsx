@@ -3,7 +3,7 @@ import "./ProductsSection.css";
 import pigIron from "../images/pig_iron.jpg";
 import billets from "../images/billets.jpg";
 import pbar from "../images/pbar.jpg";
-import hbar from "../images/hbar.jpg";
+import hbar from "../images/Hbar.jpg";
 import rbar from "../images/rbar.jpg";
 import fbar from "../images/fbar.webp";
 

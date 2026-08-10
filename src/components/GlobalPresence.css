@@ -1,0 +1,21 @@
+.global{
+  padding:100px 8%;
+  background:#181818;
+  text-align:center;
+}
+
+.global span{
+  color:#750714;
+}
+
+.global h2{
+  color:white;
+  margin-top:15px;
+  font-size:48px;
+}
+
+.world-map img{
+  width:100%;
+  margin-top:50px;
+  opacity:.8;
+}

@@ -1,0 +1,323 @@
+.trust-section {
+
+  padding:80px 8%;
+
+  background:white;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:60px;
+
+  align-items:center;
+
+}
+
+
+/* LEFT */
+
+
+.section-label {
+
+  color:#750714;
+
+  font-size:12px;
+
+  letter-spacing:3px;
+
+  font-weight:700;
+
+}
+
+
+.testimonial-area h2 {
+
+  color:#111;
+
+  font-size:42px;
+
+  line-height:1.2;
+
+  margin:15px 0;
+
+}
+
+
+.intro {
+
+  color:#666;
+
+  line-height:1.7;
+
+  max-width:450px;
+
+  margin-bottom:30px;
+
+}
+
+
+
+/* CARD */
+
+
+.testimonial-card {
+
+  background:#fff;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.08);
+
+  border:1px solid #eee;
+
+  min-height:220px;
+
+}
+
+
+
+.quote-icon {
+
+  color:#750714;
+
+}
+
+
+.testimonial-card p {
+
+  color:#555;
+
+  line-height:1.8;
+
+  margin:15px 0;
+
+}
+
+
+
+.client {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+}
+
+
+
+.avatar {
+
+  width:45px;
+
+  height:45px;
+
+  border-radius:50%;
+
+  background:#750714;
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:bold;
+
+}
+
+
+
+.client h4 {
+
+  margin:0;
+
+  color:#111;
+
+}
+
+
+.client span {
+
+  color:#750714;
+
+  font-size:14px;
+
+}
+
+
+
+/* DOTS */
+
+
+.dots {
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:25px;
+
+}
+
+
+.dots button {
+
+  width:10px;
+
+  height:10px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:#ccc;
+
+  cursor:pointer;
+
+}
+
+
+.dots button.active {
+
+  background:#750714;
+
+  width:28px;
+
+  border-radius:10px;
+
+}
+
+
+
+/* CTA */
+
+
+.cta-premium {
+
+  height:430px;
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  background:
+  url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122")
+  center/cover;
+
+  display:flex;
+
+  align-items:center;
+
+}
+
+
+
+.cta-overlay {
+
+  position:absolute;
+
+  inset:0;
+
+  background:rgba(0,0,0,.65);
+
+}
+
+
+
+.cta-content {
+
+  position:relative;
+
+  padding:45px;
+
+}
+
+
+
+.cta-content h2 {
+
+  color:white;
+
+  font-size:42px;
+
+  line-height:1.2;
+
+  margin:15px 0;
+
+}
+
+
+
+.cta-content p {
+
+  color:#ddd;
+
+  line-height:1.7;
+
+}
+
+
+
+.cta-buttons {
+
+  display:flex;
+
+  gap:15px;
+
+  margin-top:25px;
+
+}
+
+
+
+.cta-buttons button {
+
+  padding:14px 28px;
+
+  border-radius:50px;
+
+  border:none;
+
+  background:#750714;
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+}
+
+
+
+.cta-buttons .download {
+
+  background:transparent;
+
+  border:1px solid white;
+
+}
+
+
+
+@media(max-width:900px){
+
+.trust-section{
+
+grid-template-columns:1fr;
+
+}
+
+}

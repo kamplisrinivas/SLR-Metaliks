@@ -1,0 +1,123 @@
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  overflow-x: hidden;
+  background: #fff;
+  color: #111;
+}
+
+/* REMOVE VITE CENTER ALIGNMENT */
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* GLOBAL CONTAINER */
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* SECTION SPACING */
+
+section {
+  width: 100%;
+}
+
+/* COMMON HEADING */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header span {
+  color: #83000f;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  margin-top: 12px;
+  color: #000000;
+}
+
+/* BUTTONS */
+
+.primary-btn {
+  background: #750714;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background: #750714;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #111;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Hero Scroll Effect */
+
+.content-wrapper {
+  position: relative;
+  z-index: 20;
+
+  background: #fff;
+
+  margin-top: 100vh;
+
+  border-radius: 40px 40px 0 0;
+
+  overflow: hidden;
+
+  box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .section-header h2 {
+    font-size: 34px;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 28px;
+  }
+}

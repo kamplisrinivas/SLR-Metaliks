@@ -1,0 +1,235 @@
+/* ============================================
+   SLR Metaliks — Product Portfolio Page
+   Reuses the same tokens as AboutPage.css.
+   ============================================ */
+
+.slr-about {
+  --maroon: #7E1F2B;
+  --maroon-dark: #5C1620;
+  --maroon-light: #9A2C39;
+  --copper: #BD8148;
+  --copper-light: #D6A56E;
+  --cream: #F6F1EA;
+  --cream-line: #E4DCD0;
+  --ink: #1F1A16;
+  --ink-2: #E0BC9E;
+  --text-dark: #2A2420;
+  --text-gray: #6E6660;
+  --text-gray-light: #9C948C;
+  --white: #FFFFFF;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 18px;
+}
+
+/* ---------- HERO ---------- */
+.slr-prod-hero {
+  position: relative;
+  padding: 150px 0 80px;
+  background:
+    radial-gradient(ellipse 800px 420px at 15% 0%, rgba(189,129,72,0.14), transparent 60%),
+    var(--ink);
+  color: var(--white);
+  text-align: center;
+}
+.slr-prod-hero .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
+.slr-prod-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.slr-prod-breadcrumb .slr-accent { color: var(--copper-light); }
+.slr-prod-hero h1 {
+  font-size: clamp(32px, 4.6vw, 52px);
+  color: var(--white);
+  max-width: 18ch;
+  margin: 0 auto;
+}
+.slr-prod-hero p {
+  max-width: 62ch;
+  margin: 20px auto 0;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.72);
+}
+.slr-prod-hero-chips {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.slr-prod-chip {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--white);
+}
+.slr-prod-chip b { color: var(--copper-light); margin-right: 6px; }
+
+/* ---------- SHARED HEAD ---------- */
+.slr-prod-head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.slr-prod-head h2 { font-size: clamp(26px, 3.2vw, 38px); }
+.slr-prod-head p { color: var(--text-gray); margin-top: 12px; font-size: 15px; }
+
+/* ---------- STEEL TYPES GRID ---------- */
+.slr-steel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.slr-steel-card {
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  padding: 26px 20px;
+  text-align: center;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.slr-steel-card:hover {
+  transform: translateY(-6px);
+  background: var(--white);
+  box-shadow: 0 16px 30px rgba(23,19,15,0.1);
+}
+.slr-steel-icon {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--copper);
+  color: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.slr-steel-card:hover .slr-steel-icon { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
+.slr-steel-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+/* ---------- PRODUCT SIZE RANGE ---------- */
+.slr-size-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.slr-size-card {
+  background: var(--white);
+  border: 1px solid var(--cream-line);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.slr-size-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(23,19,15,0.1);
+  border-color: var(--copper);
+}
+.slr-size-shape {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.slr-size-card h4 { font-size: 15.5px; margin-bottom: 8px; }
+.slr-size-range {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--maroon);
+  line-height: 1.4;
+}
+
+/* ---------- PIG IRON ---------- */
+.slr-pigiron {
+  background: var(--ink);
+  color: var(--white);
+}
+.slr-pigiron .slr-prod-head p,
+.slr-pigiron .slr-prod-head h2 { color: var(--white); }
+.slr-pigiron .slr-eyebrow { color: var(--copper-light); }
+.slr-pigiron .slr-prod-head p { color: rgba(255,255,255,0.65); }
+
+.slr-grade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.slr-grade-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: 30px 24px;
+  text-align: center;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.slr-grade-card:hover { border-color: var(--copper); background: rgba(255,255,255,0.07); }
+.slr-grade-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+  border: 1px solid var(--copper-light);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+}
+.slr-grade-card h4 { color: var(--white); font-size: 18px; margin-bottom: 8px; }
+.slr-grade-card p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+/* ---------- CTA ---------- */
+.slr-prod-cta {
+  background: linear-gradient(120deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 80px 0;
+}
+.slr-prod-cta h2 { color: var(--white); font-size: clamp(26px, 3.4vw, 38px); max-width: 20ch; margin: 0 auto 28px; }
+.slr-prod-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.slr-prod-cta .slr-btn-primary { background: var(--white); color: var(--maroon); }
+.slr-prod-cta .slr-btn-primary:hover { background: var(--cream); }
+.slr-prod-cta .slr-btn-outline { border-color: rgba(255,255,255,0.4); }
+
+.slr-app-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 4.6vw, 50px);
+  font-weight: 700;
+  color: #fff !important;
+  max-width: 20ch;
+  margin: 0 auto;
+  line-height: 1.15;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1080px) {
+  .slr-steel-grid { grid-template-columns: repeat(4, 1fr); }
+  .slr-size-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .slr-steel-grid { grid-template-columns: repeat(3, 1fr); }
+  .slr-size-grid { grid-template-columns: repeat(2, 1fr); }
+  .slr-grade-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .slr-steel-grid { grid-template-columns: 1fr 1fr; }
+  .slr-size-grid { grid-template-columns: 1fr; }
+  .slr-prod-hero { padding: 120px 0 60px; }
+}

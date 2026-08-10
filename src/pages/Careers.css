@@ -1,0 +1,220 @@
+/* ============================================
+   SLR Metaliks — Careers & Current Openings Page
+   Signature elements: a filterable openings board
+   with inline "Apply" hand-off into a validated
+   application form, plus a scan-to-apply QR block.
+   ============================================ */
+
+.slr-about {
+  --maroon: #7E1F2B;
+  --maroon-dark: #5C1620;
+  --maroon-light: #9A2C39;
+  --copper: #BD8148;
+  --copper-light: #D6A56E;
+  --cream: #F6F1EA;
+  --cream-line: #E4DCD0;
+  --ink: #1F1A16;
+  --ink-2: #E0BC9E;
+  --text-dark: #2A2420;
+  --text-gray: #6E6660;
+  --text-gray-light: #9C948C;
+  --white: #FFFFFF;
+  --error: #B23B3B;
+  --success: #3F8A5C;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 18px;
+}
+
+/* ---------- HERO ---------- */
+.slr-car-hero {
+  position: relative;
+  padding: 150px 0 70px;
+  background:
+    radial-gradient(ellipse 820px 440px at 12% 0%, rgba(189,129,72,0.14), transparent 60%),
+    var(--ink);
+  color: var(--white);
+  text-align: center;
+}
+.slr-car-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.slr-car-breadcrumb .slr-accent { color: var(--copper-light); }
+.slr-car-hero .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
+.slr-car-hero h1 { font-size: clamp(30px, 4.6vw, 50px); color: var(--white); max-width: 20ch; margin: 0 auto; }
+.slr-car-hero p { max-width: 60ch; margin: 18px auto 0; font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.72); }
+.slr-car-hero-chips { display: flex; justify-content: center; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+.slr-car-chip {
+  border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05);
+  border-radius: 999px; padding: 9px 18px;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--white);
+}
+.slr-car-chip b { color: var(--copper-light); margin-right: 6px; }
+.slr-car-hero-actions { display: flex; justify-content: center; gap: 16px; margin-top: 34px; flex-wrap: wrap; }
+.slr-car-hero-actions .slr-btn-outline { border-color: rgba(255,255,255,0.35); }
+
+.slr-src-hero-title {
+  color: #fff !important;
+}
+
+/* ---------- SHARED HEAD ---------- */
+.slr-car-head { text-align: center; max-width: 900px; margin: 0 auto 40px; }
+.slr-car-head h2 { font-size: clamp(26px, 3.2vw, 38px); }
+.slr-car-head p { color: var(--text-gray); margin-top: 12px; font-size: 15px; line-height: 1.7; }
+
+/* ---------- WHY JOIN GRID ---------- */
+.slr-car-why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1880px; margin: 0 auto; }
+.slr-car-why-card {
+  background: var(--cream); border-radius: var(--radius-md); padding: 30px 24px; text-align: center;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.slr-car-why-card:hover { transform: translateY(-6px); background: var(--white); box-shadow: 0 16px 30px rgba(23,19,15,0.1); }
+.slr-car-why-icon {
+  width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%;
+  background: var(--maroon); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.slr-car-why-card h4 { font-size: 15.5px; margin-bottom: 8px; }
+.slr-car-why-card p { font-size: 13px; color: var(--text-gray); line-height: 1.6; }
+
+/* ---------- OPENINGS FILTER + BOARD ---------- */
+.slr-car-filters { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+.slr-car-filter-btn {
+  background: var(--white); border: 1px solid var(--cream-line); border-radius: 999px;
+  padding: 9px 18px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-gray);
+  cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.slr-car-filter-btn:hover { border-color: var(--copper); color: var(--ink); }
+.slr-car-filter-btn.is-active { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
+.slr-car-filter-count { opacity: 0.7; margin-left: 4px; font-size: 12px; }
+
+.slr-car-board { display: flex; flex-direction: column; gap: 12px; max-width: 1200px; margin: 0 auto; }
+.slr-car-job-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  background: var(--white); border: 1px solid var(--cream-line); border-radius: var(--radius-md);
+  padding: 20px 24px; transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.slr-car-job-card:hover { border-color: var(--copper); box-shadow: 0 14px 28px rgba(23,19,15,0.08); }
+.slr-car-job-main { flex: 1; min-width: 220px; }
+.slr-car-job-title { font-size: 16px; color: var(--ink); font-weight: 600; margin-bottom: 6px; }
+.slr-car-job-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
+.slr-car-job-meta span { display: flex; align-items: center; gap: 5px; }
+.slr-car-job-dept-tag {
+  display: inline-block; font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.03em; text-transform: uppercase; color: var(--maroon); background: var(--cream);
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
+}
+.slr-car-apply-btn {
+  flex: 0 0 auto; background: var(--maroon); color: var(--white); font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 13px; padding: 11px 22px; border-radius: var(--radius-sm); border: none; cursor: pointer;
+  transition: background 0.2s ease;
+}
+.slr-car-apply-btn:hover { background: var(--maroon-dark); }
+.slr-car-empty { text-align: center; color: var(--text-gray-light); font-size: 14px; padding: 40px 0; }
+.slr-car-placeholder-note {
+  max-width: 680px; margin: 24px auto 0; text-align: center; font-size: 12.5px;
+  color: var(--text-gray-light); font-style: italic;
+}
+
+/* ---------- APPLICATION FORM + QR ---------- */
+.slr-car-apply-section { background: var(--ink); color: var(--white); }
+.slr-car-apply-section .slr-car-head h2 { color: var(--white); }
+.slr-car-apply-section .slr-car-head p { color: rgba(255,255,255,0.65); }
+.slr-car-apply-section .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
+
+.slr-car-apply-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; max-width: 1280px; margin: 0 auto; align-items: start; }
+
+.slr-car-form-wrap { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-lg); padding: 36px; }
+.slr-car-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.slr-car-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.slr-car-field.full { grid-column: 1 / -1; }
+.slr-car-field label { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 0.02em; }
+.slr-car-field label .req { color: var(--copper-light); margin-left: 3px; }
+.slr-car-field input, .slr-car-field select, .slr-car-field textarea {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-sm);
+  padding: 12px 14px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--white);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.slr-car-field select option { color: var(--ink); }
+.slr-car-field input::placeholder, .slr-car-field textarea::placeholder { color: rgba(255,255,255,0.35); }
+.slr-car-field input:focus, .slr-car-field select:focus, .slr-car-field textarea:focus {
+  outline: none; border-color: var(--copper-light); background: rgba(255,255,255,0.09);
+}
+.slr-car-field input.has-error, .slr-car-field select.has-error { border-color: var(--error); }
+.slr-car-field-error { font-size: 12px; color: #FF9D9D; }
+.slr-car-field textarea { resize: vertical; min-height: 90px; }
+
+.slr-car-file-drop {
+  border: 1.5px dashed rgba(255,255,255,0.25); border-radius: var(--radius-sm);
+  padding: 18px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.6);
+  cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+.slr-car-file-drop:hover { border-color: var(--copper-light); background: rgba(255,255,255,0.04); }
+.slr-car-file-drop input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.slr-car-file-drop.has-file { border-style: solid; border-color: var(--success); color: #B7E3C4; }
+
+.slr-car-submit-row { display: flex; align-items: center; gap: 16px; margin-top: 4px; flex-wrap: wrap; }
+.slr-car-submit-btn {
+  background: var(--maroon); color: var(--white); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 13px 30px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: background 0.2s ease, opacity 0.2s ease;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.slr-car-submit-btn:hover:not(:disabled) { background: var(--maroon-dark); }
+.slr-car-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.slr-car-spinner {
+  width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); border-top-color: var(--white);
+  animation: slr-car-spin 0.7s linear infinite;
+}
+@keyframes slr-car-spin { to { transform: rotate(360deg); } }
+
+.slr-car-success {
+  display: flex; align-items: center; gap: 12px; background: rgba(63,138,92,0.14);
+  border: 1px solid rgba(63,138,92,0.4); border-radius: var(--radius-md); padding: 18px 20px; color: #B7E3C4; font-size: 14px;
+}
+.slr-car-success-icon {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--success); color: var(--white);
+  display: flex; align-items: center; justify-content: center; font-size: 14px; flex: 0 0 auto;
+}
+
+/* QR panel */
+.slr-car-qr-panel {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-lg);
+  padding: 32px 26px; text-align: center; position: sticky; top: 90px;
+}
+.slr-car-qr-panel h4 { color: var(--white); font-size: 15.5px; margin-bottom: 8px; }
+.slr-car-qr-panel p { font-size: 12.5px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 20px; }
+.slr-car-qr-frame {
+  width: 168px; height: 168px; margin: 0 auto 16px; background: var(--white); border-radius: var(--radius-sm);
+  padding: 12px; display: flex; align-items: center; justify-content: center;
+}
+.slr-car-qr-frame img { width: 100%; height: 100%; object-fit: contain; }
+.slr-car-qr-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-gray-light); text-align: center; padding: 10px;
+}
+.slr-car-qr-link { font-size: 11.5px; color: var(--copper-light); word-break: break-all; }
+
+/* ---------- CTA ---------- */
+.slr-car-cta { background: linear-gradient(120deg, var(--maroon) 0%, var(--maroon-dark) 100%); color: var(--white); text-align: center; padding: 72px 0; }
+.slr-car-cta h2 { color: var(--white); font-size: clamp(24px, 3.2vw, 34px); max-width: 24ch; margin: 0 auto 24px; }
+.slr-car-cta p { color: rgba(255,255,255,0.75); max-width: 50ch; margin: 0 auto 4px; font-size: 14px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .slr-car-apply-grid { grid-template-columns: 1fr; }
+  .slr-car-qr-panel { position: static; }
+}
+@media (max-width: 860px) {
+  .slr-car-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .slr-car-hero { padding: 120px 0 56px; }
+  .slr-car-why-grid { grid-template-columns: 1fr; }
+  .slr-car-job-card { flex-direction: column; align-items: stretch; text-align: left; }
+  .slr-car-apply-btn { width: 100%; }
+  .slr-car-form-wrap { padding: 24px 20px; }
+  .slr-car-form-grid { grid-template-columns: 1fr; }
+  .slr-car-field.full { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slr-car-spinner { animation: none; }
+}

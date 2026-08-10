@@ -1,0 +1,280 @@
+/* ============================================
+   SLR Metaliks — Sustainability Page
+   Signature element: a generated Renewable Energy
+   Mix chart (real growth-over-time bars + per-
+   project share rings), distinct from the Plant
+   page's photo accordion and the Automation page's
+   network diagrams — because this content's real
+   strength is its numbers.
+   ============================================ */
+
+.slr-about {
+  --maroon: #7E1F2B;
+  --maroon-dark: #5C1620;
+  --maroon-light: #9A2C39;
+  --copper: #BD8148;
+  --copper-light: #D6A56E;
+  --cream: #F6F1EA;
+  --cream-line: #E4DCD0;
+  --ink: #1F1A16;
+  --ink-2: #E0BC9E;
+  --text-dark: #2A2420;
+  --text-gray: #6E6660;
+  --text-gray-light: #9C948C;
+  --white: #FFFFFF;
+  --leaf: #4C8B5B;
+  --leaf-light: #7FB88C;
+  --sun: #D6A123;
+  --water: #3E7EA6;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 18px;
+}
+
+/* ---------- HERO ---------- */
+.slr-sus-hero {
+  position: relative;
+  padding: 150px 0 80px;
+  background:
+    radial-gradient(ellipse 820px 440px at 88% 0%, rgba(76,139,91,0.16), transparent 60%),
+    var(--ink);
+  color: var(--white);
+}
+.slr-sus-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.slr-sus-breadcrumb .slr-accent { color: var(--leaf-light); }
+.slr-sus-hero .slr-eyebrow { color: var(--leaf-light); }
+.slr-sus-hero h1 { font-size: clamp(30px, 4.4vw, 48px); color: var(--white); max-width: 22ch; }
+.slr-sus-hero p { margin-top: 18px; font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.72); max-width: 62ch; }
+.slr-sus-hero-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.slr-sus-chip {
+  border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05);
+  border-radius: 999px; padding: 9px 18px;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--white);
+}
+.slr-sus-chip b { color: var(--leaf-light); margin-right: 6px; }
+
+/* ---------- STICKY PILLAR NAV ---------- */
+.slr-sus-nav {
+  position: fixed;          /* Use sticky if preferred */
+  top: 55%;
+  right: 24px;               /* Change to left: 24px; for right side */
+  transform: translateY(-50%);
+  z-index: 50;
+
+  background: var(--white);
+  border: 1px solid var(--cream-line);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  padding: 12px;
+}
+
+.slr-sus-nav-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.slr-sus-nav-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-gray);
+
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.slr-sus-nav-btn:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.slr-sus-nav-btn.is-active {
+  background: var(--leaf);
+  color: var(--white);
+}
+
+/* ---------- PILLAR SECTION ---------- */
+.slr-sus-pillar { padding: 72px 0; scroll-margin-top: 128px; }
+.slr-sus-pillar:nth-child(even) { background: var(--cream); }
+.slr-sus-pillar-head { max-width: 760px; margin: 0 auto 44px; }
+.slr-sus-pillar-index { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; color: var(--leaf); letter-spacing: 0.06em; }
+.slr-sus-pillar-head h2 { font-size: clamp(24px, 3vw, 34px); margin-top: 6px; }
+.slr-sus-pillar-head p { color: var(--text-gray); margin-top: 10px; font-size: 15px; line-height: 1.7; }
+
+/* ---------- RE GROWTH CHART (signature) ---------- */
+.slr-re-growth {
+  max-width: 1800px; margin: 0 auto 48px;
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  color: var(--white);
+}
+.slr-re-growth-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 10px; }
+.slr-re-growth-head h3 { color: var(--white); font-size: 19px; }
+.slr-re-growth-head span { font-size: 12.5px; color: rgba(255,255,255,0.55); }
+.slr-re-bars { display: flex; align-items: flex-end; gap: 28px; height: 190px; }
+.slr-re-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.slr-re-bar-track { flex: 1; width: 100%; max-width: 74px; display: flex; align-items: flex-end; }
+.slr-re-bar-fill {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, var(--leaf-light), var(--leaf));
+  transition: height 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.slr-re-bar-col.is-target .slr-re-bar-fill { background: repeating-linear-gradient(135deg, var(--leaf) 0 8px, rgba(255,255,255,0.12) 8px 16px); }
+.slr-re-bar-pct { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; color: var(--white); margin-top: 12px; }
+.slr-re-bar-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; text-align: center; }
+
+/* ---------- RE PROJECT CARDS ---------- */
+.slr-re-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 0 auto; }
+.slr-re-card {
+  background: var(--white); border: 1px solid var(--cream-line); border-radius: var(--radius-md);
+  padding: 24px 22px; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.slr-re-card:hover { transform: translateY(-5px); border-color: var(--leaf); box-shadow: 0 16px 32px rgba(23,19,15,0.09); }
+.slr-re-card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.slr-re-ring-wrap { flex: 0 0 auto; width: 68px; height: 58px; }
+.slr-re-card-title h4 { font-size: 18px; color: var(--ink); margin-bottom: 2px; }
+.slr-re-card-badge {
+  display: inline-block; font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 900;
+  letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px;
+}
+.slr-re-card-badge.wind { color: var(--water); background: rgba(62,126,166,0.12); }
+.slr-re-card-badge.solar { color: var(--sun); background: rgba(214,161,35,0.14); }
+.slr-re-card-badge.selfgen { color: var(--copper); background: var(--cream); }
+.slr-re-card-badge.upcoming { color: var(--text-gray); background: var(--cream); }
+.slr-re-card-desc { font-size: 13px; color: var(--text-gray); line-height: 1.6; margin-bottom: 12px; }
+.slr-re-card-facts { display: flex; flex-direction: column; gap: 5px; }
+.slr-re-card-fact { display: flex; justify-content: space-between; font-size: 12.5px; }
+.slr-re-card-fact .lbl { color: var(--text-gray-light); }
+.slr-re-card-fact .val { color: var(--ink); font-weight: 600; }
+
+/* ---------- SUBSECTION ACCORDION ---------- */
+.slr-sus-list { max-width: 1800px; margin: 44px auto 0; display: flex; flex-direction: column; gap: 24px; }
+.slr-sus-item { background: var(--white); border: 1px solid var(--cream-line); border-radius: var(--radius-md); overflow: hidden; transition: border-color 0.25s ease, box-shadow 0.25s ease; }
+.slr-sus-item.is-open { border-color: var(--leaf); box-shadow: 0 16px 34px rgba(23,19,15,0.09); }
+.slr-sus-trigger { width: 100%; display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: none; border: none; cursor: pointer; text-align: left; }
+.slr-sus-icon {
+  flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--leaf); color: var(--leaf); display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; transition: background 0.25s ease, color 0.25s ease;
+}
+.slr-sus-item.is-open .slr-sus-icon { background: var(--leaf); color: var(--white); }
+.slr-sus-trigger-text { flex: 1; }
+.slr-sus-trigger-text h3 { font-size: 24px; color: var(--ink); margin-bottom: 2px; }
+.slr-sus-trigger-sub { font-size: 12.5px; color: var(--text-gray); }
+.slr-sus-chevron { font-size: 13px; color: var(--text-gray-light); transition: transform 0.3s ease; }
+.slr-sus-item.is-open .slr-sus-chevron { transform: rotate(180deg); color: var(--leaf); }
+.slr-sus-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.slr-sus-panel-inner { padding: 0 22px 26px; }
+.slr-sus-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-gray); margin-bottom: 16px; }
+
+.slr-src-hero-title {
+  color: #fff !important;
+}
+
+/* stat pill row (chips inside a panel) */
+.slr-sus-stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.slr-sus-stat-pill {
+  background: var(--cream); border-radius: var(--radius-sm); padding: 10px 16px; text-align: center; min-width: 100px;
+}
+.slr-sus-stat-pill .num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; color: var(--leaf); }
+.slr-sus-stat-pill .lbl { font-size: 11px; color: var(--text-gray); margin-top: 2px; }
+
+/* water reduction ring highlight */
+.slr-water-highlight { display: flex; align-items: center; gap: 22px; background: var(--cream); border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 18px; }
+.slr-water-ring { flex: 0 0 auto; width: 84px; height: 84px; }
+.slr-water-highlight-text h4 { font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+.slr-water-highlight-text p { font-size: 13px; color: var(--text-gray); line-height: 1.6; }
+
+/* CRA icon grid */
+.slr-cra-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.slr-cra-item {
+  background: var(--cream); border-radius: var(--radius-sm); padding: 14px 12px; text-align: center;
+  font-size: 12.5px; font-weight: 600; color: var(--ink);
+}
+
+/* policy / document download list */
+.slr-doc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 8px; }
+.slr-doc-link {
+  display: flex; align-items: center; gap: 10px; background: var(--cream); border-radius: var(--radius-sm);
+  padding: 12px 14px; font-size: 13px; color: var(--text-dark); transition: background 0.2s ease;
+}
+.slr-doc-link:hover { background: var(--cream-line); }
+.slr-doc-icon {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 6px; background: var(--white);
+  border: 1px solid var(--cream-line); display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--maroon); font-weight: 700;
+}
+
+/* image gallery + lightbox (shared pattern) */
+.slr-sus-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.slr-sus-gallery-img, .slr-sus-gallery .slr-sus-img-fallback {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-sm); cursor: pointer; transition: transform 0.3s ease;
+}
+.slr-sus-gallery-img:hover { transform: scale(1.03); }
+.slr-sus-img-fallback {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(145deg, var(--cream), var(--cream-line));
+  color: var(--leaf); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px;
+}
+
+.slr-lightbox {
+  position: fixed; inset: 0; background: rgba(23,19,15,0.92);
+  display: flex; align-items: center; justify-content: center; z-index: 500; padding: 32px;
+}
+.slr-lightbox img, .slr-lightbox .slr-sus-img-fallback {
+  max-width: 90vw; max-height: 78vh; width: 420px; height: 320px; border-radius: var(--radius-md); font-size: 48px;
+}
+.slr-lightbox-caption { position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: var(--white); font-size: 14px; }
+.slr-lightbox-close, .slr-lightbox-nav {
+  position: absolute; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer;
+}
+.slr-lightbox-close { top: 24px; right: 24px; }
+.slr-lightbox-nav.prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.slr-lightbox-nav.next { right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- CTA ---------- */
+.slr-sus-cta { background: linear-gradient(120deg, var(--leaf) 0%, #2E5C39 100%); color: var(--white); text-align: center; padding: 80px 0; }
+.slr-sus-cta h2 { color: var(--white); font-size: clamp(26px, 3.4vw, 38px); max-width: 24ch; margin: 0 auto 28px; }
+.slr-sus-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.slr-sus-cta .slr-btn-primary { background: var(--white); color: var(--leaf); }
+.slr-sus-cta .slr-btn-primary:hover { background: var(--cream); }
+.slr-sus-cta .slr-btn-outline { border-color: rgba(255,255,255,0.4); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1000px) {
+  .slr-re-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .slr-cra-grid { grid-template-columns: repeat(2, 1fr); }
+  .slr-doc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .slr-sus-hero { padding: 120px 0 56px; }
+  .slr-re-growth { padding: 26px 22px; }
+  .slr-re-bars { gap: 14px; height: 150px; }
+  .slr-re-grid { grid-template-columns: 1fr; }
+  .slr-sus-panel-inner { padding: 0 14px 20px; }
+  .slr-sus-trigger { padding: 14px 16px; gap: 12px; }
+  .slr-sus-gallery { gap: 6px; }
+  .slr-water-highlight { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slr-sus-panel, .slr-sus-chevron, .slr-re-bar-fill { transition: none; }
+}

@@ -1,0 +1,207 @@
+/* ============================================
+   SLR Metaliks — Responsible Sourcing Page
+   Signature elements: a Vendor Onboarding step-flow
+   and a real functional Supply Query form with live
+   validation — distinct from the chart/diagram
+   signatures used on the Automation/Sustainability
+   pages, fitting this content's relationship + form
+   nature instead.
+   ============================================ */
+
+.slr-about {
+  --maroon: #7E1F2B;
+  --maroon-dark: #5C1620;
+  --maroon-light: #9A2C39;
+  --copper: #BD8148;
+  --copper-light: #D6A56E;
+  --cream: #F6F1EA;
+  --cream-line: #E4DCD0;
+  --ink: #1F1A16;
+  --ink-2: #E0BC9E;
+  --text-dark: #2A2420;
+  --text-gray: #6E6660;
+  --text-gray-light: #9C948C;
+  --white: #FFFFFF;
+  --error: #B23B3B;
+  --success: #3F8A5C;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 18px;
+}
+
+/* ---------- HERO ---------- */
+.slr-src-hero {
+  position: relative;
+  padding: 150px 0 80px;
+  background:
+    radial-gradient(ellipse 820px 440px at 15% 0%, rgba(189,129,72,0.14), transparent 60%),
+    var(--ink);
+  color: var(--white);
+  text-align: center;
+}
+.slr-src-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.slr-src-breadcrumb .slr-accent { color: var(--copper-light); }
+.slr-src-hero .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
+.slr-src-hero h1 { font-size: clamp(30px, 4.6vw, 50px); color: var(--white); max-width: 20ch; margin: 0 auto; }
+.slr-src-hero p { max-width: 62ch; margin: 20px auto 0; font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.72); }
+.slr-src-hero-actions { display: flex; justify-content: center; gap: 16px; margin-top: 34px; flex-wrap: wrap; }
+.slr-src-hero-actions .slr-btn-outline { border-color: rgba(255,255,255,0.35); }
+
+.slr-src-hero-title {
+  color: #fff !important;
+}
+/* ---------- SHARED HEAD ---------- */
+.slr-src-head { text-align: center; max-width: 680px; margin: 0 auto 44px; }
+.slr-src-head h2 { font-size: clamp(26px, 3.2vw, 38px); }
+.slr-src-head p { color: var(--text-gray); margin-top: 12px; font-size: 15px; line-height: 1.7; }
+
+/* ---------- VALUES GRID (Supply Relationship Management) ---------- */
+.slr-src-values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1080px; margin: 0 auto; }
+.slr-src-value-card {
+  background: var(--cream); border-radius: var(--radius-md); padding: 30px 24px; text-align: center;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.slr-src-value-card:hover { transform: translateY(-6px); background: var(--white); box-shadow: 0 16px 30px rgba(23,19,15,0.1); }
+.slr-src-value-icon {
+  width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%;
+  background: var(--maroon); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.slr-src-value-card h4 { font-size: 20px; margin-bottom: 8px; }
+.slr-src-value-card p { font-size: 13px; color: var(--text-gray); line-height: 1.6; }
+
+/* ---------- SELECTION CRITERIA ---------- */
+.slr-src-criteria-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+.slr-src-criteria-card {
+  background: var(--white); border: 1px solid var(--cream-line); border-radius: var(--radius-md);
+  padding: 24px 18px; text-align: center; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.slr-src-criteria-card:hover { transform: translateY(-5px); border-color: var(--copper); box-shadow: 0 14px 28px rgba(23,19,15,0.09); }
+.slr-src-criteria-num {
+  width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 1.5px solid var(--copper);
+  color: var(--copper); display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+}
+.slr-src-criteria-card h4 { font-size: 20px; color: var(--ink); line-height: 1.4; }
+
+/* ---------- ONBOARDING STEP FLOW ---------- */
+.slr-src-flow-note {
+  max-width: 680px; margin: -20px auto 40px; text-align: center; font-size: 12.5px;
+  color: var(--text-gray-light); font-style: italic;
+}
+.slr-onboard-flow {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; max-width: 1100px; margin: 0 auto; position: relative;
+}
+.slr-onboard-flow::before {
+  content: ''; position: absolute; top: 27px; left: 6%; right: 6%; height: 2px;
+  background: repeating-linear-gradient(90deg, var(--cream-line) 0 8px, transparent 8px 14px);
+  z-index: 0;
+}
+.slr-onboard-step { position: relative; z-index: 1; text-align: center; padding: 0 12px; }
+.slr-onboard-node {
+  width: 54px; height: 54px; margin: 0 auto 18px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--maroon); color: var(--maroon);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px;
+}
+.slr-onboard-step:last-child .slr-onboard-node { background: var(--maroon); color: var(--white); }
+.slr-onboard-step h4 { font-size: 20px; color: var(--ink); margin-bottom: 8px; }
+.slr-onboard-step p { font-size: 12.5px; color: var(--text-gray); line-height: 1.55; }
+
+/* ---------- GALLERY ---------- */
+.slr-src-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1000px; margin: 0 auto; }
+.slr-src-gallery-img, .slr-src-gallery .slr-src-img-fallback {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s ease;
+}
+.slr-src-gallery-img:hover { transform: scale(1.03); }
+.slr-src-img-fallback {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(145deg, var(--cream), var(--cream-line));
+  color: var(--copper); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px;
+}
+
+.slr-lightbox {
+  position: fixed; inset: 0; background: rgba(23,19,15,0.92);
+  display: flex; align-items: center; justify-content: center; z-index: 500; padding: 32px;
+}
+.slr-lightbox img, .slr-lightbox .slr-src-img-fallback {
+  max-width: 90vw; max-height: 78vh; width: 420px; height: 320px; border-radius: var(--radius-md); font-size: 48px;
+}
+.slr-lightbox-caption { position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: var(--white); font-size: 14px; }
+.slr-lightbox-close, .slr-lightbox-nav {
+  position: absolute; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer;
+}
+.slr-lightbox-close { top: 24px; right: 24px; }
+.slr-lightbox-nav.prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.slr-lightbox-nav.next { right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- SUPPLY QUERY FORM ---------- */
+.slr-src-form-section { background: var(--ink); color: var(--white); }
+.slr-src-form-section .slr-src-head h2 { color: var(--white); }
+.slr-src-form-section .slr-src-head p { color: rgba(255,255,255,0.65); }
+.slr-src-form-section .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
+
+.slr-src-form-wrap { max-width: 720px; margin: 0 auto; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-lg); padding: 40px; }
+.slr-src-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.slr-src-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.slr-src-field.full { grid-column: 1 / -1; }
+.slr-src-field label { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 0.02em; }
+.slr-src-field label .req { color: var(--copper-light); margin-left: 3px; }
+.slr-src-field input, .slr-src-field textarea {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-sm);
+  padding: 12px 14px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--white);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.slr-src-field input::placeholder, .slr-src-field textarea::placeholder { color: rgba(255,255,255,0.35); }
+.slr-src-field input:focus, .slr-src-field textarea:focus { outline: none; border-color: var(--copper-light); background: rgba(255,255,255,0.09); }
+.slr-src-field input.has-error, .slr-src-field textarea.has-error { border-color: var(--error); }
+.slr-src-field-error { font-size: 12px; color: #FF9D9D; }
+.slr-src-field textarea { resize: vertical; min-height: 100px; }
+
+.slr-src-submit-row { display: flex; align-items: center; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
+.slr-src-submit-btn {
+  background: var(--maroon); color: var(--white); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 13px 30px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: background 0.2s ease, opacity 0.2s ease;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.slr-src-submit-btn:hover:not(:disabled) { background: var(--maroon-dark); }
+.slr-src-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.slr-src-spinner {
+  width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); border-top-color: var(--white);
+  animation: slr-src-spin 0.7s linear infinite;
+}
+@keyframes slr-src-spin { to { transform: rotate(360deg); } }
+
+.slr-src-success {
+  display: flex; align-items: center; gap: 12px; background: rgba(63,138,92,0.14);
+  border: 1px solid rgba(63,138,92,0.4); border-radius: var(--radius-md); padding: 18px 20px; color: #B7E3C4; font-size: 14px;
+}
+.slr-src-success-icon {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--success); color: var(--white);
+  display: flex; align-items: center; justify-content: center; font-size: 14px; flex: 0 0 auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1080px) {
+  .slr-src-criteria-grid { grid-template-columns: repeat(3, 1fr); }
+  .slr-onboard-flow { grid-template-columns: repeat(3, 1fr); row-gap: 36px; }
+  .slr-onboard-flow::before { display: none; }
+}
+@media (max-width: 860px) {
+  .slr-src-values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .slr-src-hero { padding: 120px 0 56px; }
+  .slr-src-criteria-grid { grid-template-columns: 1fr 1fr; }
+  .slr-onboard-flow { grid-template-columns: 1fr; }
+  .slr-src-values-grid { grid-template-columns: 1fr; }
+  .slr-src-gallery { grid-template-columns: 1fr; gap: 10px; }
+  .slr-src-form-wrap { padding: 26px 20px; }
+  .slr-src-form-grid { grid-template-columns: 1fr; }
+  .slr-src-field.full { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slr-src-spinner { animation: none; }
+}

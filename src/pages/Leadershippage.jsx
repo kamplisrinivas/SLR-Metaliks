@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './LeadershipPage.css';
+import './Leadershippage.css';
 import MDImage from '../images/MD.jpg';
 import Timblo from '../images/Timblo.webp';
 import Rajat from '../images/Rajat.webp';

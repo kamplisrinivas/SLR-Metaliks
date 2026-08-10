@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import './Applications.css';
 
 import cc1 from '../images/cc1.png';

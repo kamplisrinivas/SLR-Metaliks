@@ -1,5 +1,5 @@
 import React from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import { Link } from "react-router-dom";
 
 import mdImage from "../images/MD.jpg";

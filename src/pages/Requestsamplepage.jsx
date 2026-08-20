@@ -1,27 +1,27 @@
-import React, { useMemo, useState } from 'react';
+﻿import React, { useMemo, useState } from 'react';
 import './Aboutpage.css';
-import './Requestsamplepage.CSS';
+import './Requestsamplepage.css';
 
 /*
-  SLR Metaliks — Request a Sample Page
+  SLR Metaliks â€” Request a Sample Page
   Plain React + CSS, matching AboutPage.css tokens.
 
   Reuses real product and application data already established
   elsewhere on this site (Products and Applications pages) for the
   dropdowns, rather than inventing a new disconnected list.
 
-  IMPORTANT — Process flow: no real sample-fulfillment process was
+  IMPORTANT â€” Process flow: no real sample-fulfillment process was
   given, so PROCESS_STEPS below is a standard 4-step structure
   (Submit -> Prepare & Test -> Dispatch -> Feedback) offered as a
-  reasonable placeholder — flagged on the page itself, not asserted
+  reasonable placeholder â€” flagged on the page itself, not asserted
   as SLRM's actual documented process. Edit freely.
 
   The form is fully functional client-side (validation, loading ->
-  success state) with no backend wired up — see the TODO in
+  success state) with no backend wired up â€” see the TODO in
   handleSubmit for where to add your real request.
 
   NOTE: Header and Footer aren't rendered here, same assumption as the
-  other pages — supplied by a shared Layout elsewhere in the app.
+  other pages â€” supplied by a shared Layout elsewhere in the app.
 */
 
 const PRODUCTS = [
@@ -57,7 +57,7 @@ const WHY_SAMPLE = [
 ];
 
 /*
-  Placeholder structure — see note above. Edit freely to match your
+  Placeholder structure â€” see note above. Edit freely to match your
   actual sample fulfillment process.
 */
 const PROCESS_STEPS = [
@@ -106,7 +106,7 @@ function SampleHero() {
         <span className="slr-eyebrow">Request a Sample</span>
         <h1>Prove the Grade Before You Commit to Volume</h1>
         <p>
-          Request a physical sample of the product and grade you're evaluating —
+          Request a physical sample of the product and grade you're evaluating â€”
           drawn from real production, tested, and shipped with its mill test
           certificate.
         </p>
@@ -155,7 +155,7 @@ function ProcessFlow() {
           <h2>From request to your dock</h2>
         </div>
         <p className="slr-dem-flow-note">
-          This is a standard process structure provided as a starting point —
+          This is a standard process structure provided as a starting point â€”
           edit PROCESS_STEPS in the code to match your actual fulfillment flow.
         </p>
         <div className="slr-dem-flow">
@@ -281,7 +281,7 @@ function SampleRequestFormWithLiftedState({ form, setForm }) {
         <div className="slr-dem-success">
           <span className="slr-dem-success-icon">&#10003;</span>
           <span>
-            Thanks, {form.name.split(' ')[0]} — your sample request for
+            Thanks, {form.name.split(' ')[0]} â€” your sample request for
             <strong> {form.product}</strong> has been received. Our technical
             team will follow up on next steps.
           </span>
@@ -416,3 +416,4 @@ export default function RequestSamplePage() {
     </div>
   );
 }
+

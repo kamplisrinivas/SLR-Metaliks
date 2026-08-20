@@ -37,12 +37,134 @@ import Dj from '../images/Dj.webp';
 */
 
 const BOARD = [
-  { id: 'b1', name: 'Mr. Rajkumar Goel', position: 'Managing Director', bio: 'Mr. Raj Kumar Goel, Managing Director of the Company, has rich experience in Steel Marketing and he has been Managing Director of the Company since its incorporation in 2007.', experience: '25+ Years', linkedin: '#', email: 'mailto:md@slrm.com', photo: MDImage },
-  { id: 'b2', name: 'Mr. Ambar Timblo', position: 'Chairman', bio: 'Mr. Ambar Timblo is the Managing Director of Fomento Resources. Mr.Ambar’s initial schooling was at Sharda Mandir, Goa followed by his high school at Modern School, Barakhamba Road, New Delhi.', experience: '22+ Years', linkedin: '#', email: 'mailto:name@slrmetaliks.com', photo: Timblo },
-  { id: 'b3', name: 'Mr. Rajat Goel', position: 'Director and CFO', bio: 'Mr. Rajat Goel, Post-graduated as MBA Marketing, A very Energetic and enthusiastic young entrepreneur. He is in the business from 2012.', experience: '20+ Years', linkedin: '#', email: 'mailto:name@slrmetaliks.com', photo: Rajat },
-  { id: 'b4', name: 'Mr. Apoorva Misra', position: ' Director', bio: 'Mr.Apoorva Misra, 45 years, Ph.D, Accounting (Major) & Finance (Minor) At University of Rochester, Simon Business School. He has been in Finance field for more than 20 years and occupy various senior positions.', experience: '21+ Years', linkedin: '#', email: 'mailto:name@slrmetaliks.com', photo: Misra },
-  { id: 'b5', name: 'Mr. Anil Kumar Jha', position: 'Independent Director', bio: 'Mr Anil Kumar Jha is B. Tech. in Mining from IIT(ISM), Dhanbad and M. Tech. in Mine Planning & Design from IIT(ISM), Dhanbad.', experience: '17+ Years', linkedin: '#', email: 'mailto:name@slrmetaliks.com', photo: anil },
-];  
+  {
+    id: "b1",
+    name: "Mr. Rajkumar Goel",
+    position: "Managing Director",
+
+    bio: "Mr. Raj Kumar Goel, Managing Director of the Company, has rich experience in Steel Marketing and has been serving as Managing Director since the Company's incorporation in 2007.",
+
+    fullBio: `Mr. Raj Kumar Goel, Managing Director of the Company, has rich experience in Steel Marketing and has been Managing Director of the Company since its incorporation in 2007.
+
+He leads his dynamic team with determination and commitment, resulting in the successful commissioning of various plants, including Sinter, MBF, SMS, RMS and a 6 MW Captive Power Plant.
+
+SLR started from the ground level and, under his inspirational leadership and strong management capabilities, the plant has grown to a capacity of 0.3 million tonnes of Alloy and Special Steel. His strong vision has been to achieve 0.7 million tonnes per annum and subsequently expand the organization's capabilities further.
+
+He has always believed in the philosophy that every cloud has a silver lining, firmly believing that difficult times can lead to better days. He has also established 33 MW capacity Hydro Plants in Uttarakhand, which are operating successfully.
+
+Mr. Raj Kumar Goel serves on the boards of several other Group Companies. His entrepreneurial capabilities and extensive exposure to Corporate Finance and Planning, Investor Relations, Risk Management and Taxation Strategy have earned him recognition as a leader in his field.
+
+He also plays an important role as a facilitator for various Group Companies. He is deeply committed to employee development and continuously encourages innovative and creative thinking among his teams.
+
+He firmly believes that the success and growth of SLR are driven by its people and the strength of its TEAM.`,
+
+    experience: "25+ Years",
+    linkedin: "#",
+    email: "mailto:md@slrm.com",
+    photo: MDImage,
+  },
+
+  {
+    id: "b2",
+    name: "Mr. Ambar Timblo",
+    position: "Chairman",
+
+    bio: "Mr. Ambar Timblo is the Managing Director of Fomento Resources and brings extensive experience across mining, mineral processing, logistics, steel, shipping, energy, hospitality and media.",
+
+    fullBio: `Mr. Ambar Timblo is the Managing Director of Fomento Resources.
+
+Mr. Ambar's initial schooling was at Sharda Mandir, Goa, followed by his high school education at Modern School, Barakhamba Road, New Delhi.
+
+He graduated in 1997 from the London School of Economics (LSE), UK, with a BSc in Economics. Following his graduation, Ambar joined Fomento Resources and is presently its Managing Director.
+
+Fomento Group has interests across multiple sectors, including Mining, Mineral Processing, Logistics, Steel, Shipping, Energy, Hospitality and Media.
+
+Mr. Ambar presently serves as the President of the Goa Mineral Ore Exporters' Association.
+
+During his school and college years, he was a nationally ranked badminton player. Beyond his professional commitments, he values family life and has been married to Vinni for 24 years. They have two children, Adi and Sara, along with their dogs, Atticus and Bailey Rae.`,
+
+    experience: "22+ Years",
+    linkedin: "#",
+    email: "mailto:name@slrmetaliks.com",
+    photo: Timblo,
+  },
+
+  {
+    id: "b3",
+    name: "Mr. Rajat Goel",
+    position: "Director and CFO",
+
+    bio: "Mr. Rajat Goel is an MBA in Marketing and an energetic entrepreneur who has been associated with the business since 2012, contributing significantly to projects, corporate functions and organizational growth.",
+
+    fullBio: `Mr. Rajat Goel is a postgraduate with an MBA in Marketing and is an energetic and enthusiastic young entrepreneur who has been associated with the business since 2012.
+
+He worked as Project Head for four years in the Power Division, where he was involved in the commissioning of two hydro power plants in Uttarakhand State — Sarju 2 (12.6 MW) and Sarju 3 (10.5 MW).
+
+These power plants have been operating successfully, reflecting his strong vision, project management capabilities and emphasis on teamwork.
+
+Mr. Rajat Goel has inherited a strong business sense and valuable learning from his father and mentor. He believes in continuous learning and strongly follows the philosophy, "Grow Through What You Go Through."
+
+He is a key member of the Senior Management Team and plays an important role in the growth of the organization. His responsibilities include supervision of corporate functions and contributing to strategic initiatives across the Group.`,
+
+    experience: "20+ Years",
+    linkedin: "#",
+    email: "mailto:name@slrmetaliks.com",
+    photo: Rajat,
+  },
+
+  {
+    id: "b4",
+    name: "Mr. Apoorva Misra",
+    position: "Director",
+
+    bio: "Mr. Apoorva Misra holds a Ph.D. in Accounting and Finance from the University of Rochester's Simon Business School and has more than two decades of experience in the finance sector.",
+
+    fullBio: `Mr. Apoorva Misra, aged 45, holds a Ph.D. in Accounting with a minor in Finance from the University of Rochester, Simon Business School.
+
+He has more than 20 years of experience in the finance sector and has held various senior positions during his professional career.
+
+Mr. Misra brings extensive expertise in Treasury Management, Capital Budgeting and allied financial services.
+
+He is associated with various companies at the Director level and is also associated with Fomento Group in the capacity of Chief Financial Officer.
+
+His extensive financial expertise and strategic understanding contribute to effective financial planning, governance and organizational decision-making.`,
+
+    experience: "21+ Years",
+    linkedin: "#",
+    email: "mailto:name@slrmetaliks.com",
+    photo: Misra,
+  },
+
+  {
+    id: "b5",
+    name: "Mr. Anil Kumar Jha",
+    position: "Independent Director",
+
+    bio: "Mr. Anil Kumar Jha is a highly experienced mining professional with extensive expertise in mine planning, production, management and strategic leadership across India's coal and power sectors.",
+
+    fullBio: `Mr. Anil Kumar Jha holds a B.Tech. in Mining from IIT (ISM), Dhanbad and an M.Tech. in Mine Planning & Design from IIT (ISM), Dhanbad.
+
+He brings more than four decades of professional experience in mine planning, production, management, supervision, direction and control of both underground and open-cast coal mines.
+
+He began his career in the coal mining industry in 1983 with Central Coalfields Limited (CCL), where he held several important responsibilities and subsequently served as General Manager.
+
+Mr. Jha later served as Chairman & Managing Director of Coal India Limited (CIL). Prior to this, he headed Mahanadi Coalfields Limited (MCL) as its Chairman-cum-Managing Director (CMD).
+
+Before joining MCL as CMD, he served as Director (Production and Planning) at MOIL Limited, a Public Sector Undertaking under the Ministry of Steel.
+
+He has also served as Chairman of Jindal Power Limited.
+
+With his extensive experience in mining, operations, strategic planning and organizational leadership, Mr. Jha brings significant expertise and independent perspective to the Board.
+
+He is presently serving as Chairman of India Power Corporation Ltd.`,
+
+    experience: "40+ Years",
+    linkedin: "#",
+    email: "mailto:name@slrmetaliks.com",
+    photo: anil,
+  },
+];
+ 
 
 const CHAIRMAN = {
   name: 'Mr. Rajkumar Goel',
@@ -352,42 +474,287 @@ function LeadershipHero() {
 }
 
 function BoardOfDirectors() {
+  const [selectedDirector, setSelectedDirector] = useState(null);
+
+  // Close popup with Escape key
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setSelectedDirector(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  // Prevent background scrolling when popup is open
+  useEffect(() => {
+    if (selectedDirector) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedDirector]);
+
   return (
     <section id="board" className="slr-section">
+
       <div className="slr-container">
+
+        {/* HEADER */}
+
         <div className="slr-lead-head">
-          <span className="slr-eyebrow">Board of Directors</span>
-          <h2>The people steering our direction</h2>
-          <p>Five board members bringing decades of combined industry and governance experience.</p>
+          <span className="slr-eyebrow">
+            Board of Directors
+          </span>
+
+          <h2>
+            The people steering our direction
+          </h2>
+
+          <p>
+            Five board members bringing decades of combined
+            industry and governance experience.
+          </p>
         </div>
+
+
+        {/* BOARD CARDS */}
+
         <div className="slr-board-grid">
+
           {BOARD.map((m) => (
+
             <Reveal key={m.id}>
+
               <article className="slr-board-card">
+
+                {/* PHOTO */}
+
                 <div className="slr-board-photo">
-                  <Avatar photo={m.photo} name={m.name} />
+                  <Avatar
+                    photo={m.photo}
+                    name={m.name}
+                  />
                 </div>
+
+
+                {/* BODY */}
+
                 <div className="slr-board-body">
+
                   <h3>{m.name}</h3>
-                  <div className="slr-board-position">{m.position}</div>
-                  <p className="slr-board-bio">{m.bio}</p>
-                  <div className="slr-board-exp">{m.experience}</div>
-                  <div className="slr-board-footer">
-                    <div className="slr-board-socials">
-                      <a href={m.linkedin} className="slr-icon-btn" aria-label={`${m.name} on LinkedIn`}>in</a>
-                      <a href={m.email} className="slr-icon-btn" aria-label={`Email ${m.name}`}>@</a>
-                    </div>
-                    <a href={`#${m.id}`} className="slr-view-profile">View Profile &rarr;</a>
+
+                  <div className="slr-board-position">
+                    {m.position}
                   </div>
+
+                  <p className="slr-board-bio">
+                    {m.bio}
+                  </p>
+
+                  <div className="slr-board-exp">
+                    {m.experience}
+                  </div>
+
+
+                  {/* FOOTER */}
+
+                  <div className="slr-board-footer">
+
+                    <div className="slr-board-socials">
+
+                      <a
+                        href={m.linkedin}
+                        className="slr-icon-btn"
+                        aria-label={`${m.name} on LinkedIn`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        in
+                      </a>
+
+                      <a
+                        href={m.email}
+                        className="slr-icon-btn"
+                        aria-label={`Email ${m.name}`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        @
+                      </a>
+
+                    </div>
+
+
+                    {/* VIEW PROFILE */}
+
+                    <button
+                      type="button"
+                      className="slr-view-profile"
+                      onClick={() => setSelectedDirector(m)}
+                    >
+                      View Profile →
+                    </button>
+
+                  </div>
+
                 </div>
+
               </article>
+
             </Reveal>
+
           ))}
+
         </div>
+
       </div>
+
+
+      {/* =====================================
+          BOARD MEMBER PROFILE POPUP
+      ===================================== */}
+
+      {selectedDirector && (
+
+        <div
+          className="slr-director-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="director-profile-title"
+          onClick={() => setSelectedDirector(null)}
+        >
+
+          <div
+            className="slr-director-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            {/* CLOSE BUTTON */}
+
+            <button
+              type="button"
+              className="slr-director-close"
+              onClick={() => setSelectedDirector(null)}
+              aria-label="Close profile"
+            >
+              ×
+            </button>
+
+
+            {/* LEFT - PHOTO */}
+
+            <div className="slr-director-modal-photo">
+
+              <Avatar
+                photo={selectedDirector.photo}
+                name={selectedDirector.name}
+              />
+
+            </div>
+
+
+            {/* RIGHT - DETAILS */}
+
+            <div className="slr-director-modal-details">
+
+              <span className="slr-eyebrow">
+                Board of Directors
+              </span>
+
+
+              <h2 id="director-profile-title">
+                {selectedDirector.name}
+              </h2>
+
+
+              <div className="slr-director-modal-position">
+                {selectedDirector.position}
+              </div>
+
+
+              {/* EXPERIENCE */}
+
+              <div className="slr-director-experience">
+
+                <span className="slr-director-experience-number">
+                  {selectedDirector.experience}
+                </span>
+
+                <span className="slr-director-experience-label">
+                  Professional Experience
+                </span>
+
+              </div>
+
+
+              {/* BIO */}
+
+              <div className="slr-director-about">
+
+                <h4>About</h4>
+
+                <div className="slr-director-full-bio">
+  {selectedDirector.fullBio
+    .split("\n\n")
+    .map((paragraph, index) => (
+      <p key={index}>
+        {paragraph}
+      </p>
+    ))}
+</div>
+
+
+              </div>
+
+
+              {/* CONTACT */}
+
+              <div className="slr-director-actions">
+
+                <a
+                  href={selectedDirector.email}
+                  className="slr-director-email"
+                >
+                  ✉ Email
+                </a>
+
+
+                {selectedDirector.linkedin &&
+                  selectedDirector.linkedin !== "#" && (
+
+                    <a
+                      href={selectedDirector.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slr-director-linkedin"
+                    >
+                      in LinkedIn
+                    </a>
+
+                  )}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
     </section>
   );
 }
+
 
 function ChairmanSpotlight() {
   return (
@@ -429,6 +796,7 @@ function ChairmanSpotlight() {
 
 function LeadershipTeamGrid() {
   const [page, setPage] = useState(0);
+  const [selectedMember, setSelectedMember] = useState(null);
 
   const membersPerPage = 4;
   const totalPages = Math.ceil(LEADERSHIP.length / membersPerPage);
@@ -441,10 +809,38 @@ function LeadershipTeamGrid() {
   useEffect(() => {
     const timer = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
-    }, 3000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, [totalPages]);
+
+  // Close popup with Escape key
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setSelectedMember(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  // Prevent background scrolling while popup is open
+  useEffect(() => {
+    if (selectedMember) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedMember]);
 
   return (
     <section className="slr-section slr-section-cream">
@@ -452,28 +848,40 @@ function LeadershipTeamGrid() {
 
         <div className="slr-lead-head">
           <span className="slr-eyebrow">Leadership Team</span>
-          <h2> people running the business day to day</h2>
+
+          <h2>
+            People running the business day to day
+          </h2>
+
           <p>
             Department heads and senior leaders across operations,
             finance, sales, and quality.
           </p>
         </div>
 
+        {/* TEAM CARDS */}
 
         <div key={page} className="slr-team-grid">
 
           {visibleMembers.map((m) => (
             <Reveal key={m.id}>
+
               <article className="slr-team-card">
 
                 <div className="slr-team-photo">
-                  <Avatar photo={m.photo} name={m.name} />
+
+                  <Avatar
+                    photo={m.photo}
+                    name={m.name}
+                  />
 
                   <div className="slr-team-overlay">
+
                     <a
                       href={m.linkedin}
                       className="slr-icon-btn"
                       aria-label={`${m.name} on LinkedIn`}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       in
                     </a>
@@ -482,13 +890,14 @@ function LeadershipTeamGrid() {
                       href={m.email}
                       className="slr-icon-btn"
                       aria-label={`Email ${m.name}`}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       @
                     </a>
+
                   </div>
 
                 </div>
-
 
                 <div className="slr-team-body">
 
@@ -503,38 +912,50 @@ function LeadershipTeamGrid() {
                     <span>{m.location}</span>
                   </div>
 
-                  <a href={`#${m.id}`} className="slr-team-view">
-                    View Profile
-                  </a>
+                  {/* VIEW PROFILE */}
+
+                  <button
+                    type="button"
+                    className="slr-team-view"
+                    onClick={() => setSelectedMember(m)}
+                  >
+                    View Profile →
+                  </button>
 
                 </div>
 
               </article>
+
             </Reveal>
           ))}
 
         </div>
 
+        {/* NAVIGATION */}
 
         <div className="slr-team-navigation">
 
           <button
+            type="button"
             onClick={() =>
-              setPage((prev) => (prev - 1 + totalPages) % totalPages)
+              setPage(
+                (prev) => (prev - 1 + totalPages) % totalPages
+              )
             }
           >
-            ← 
+            ←
           </button>
-
 
           <span>
             {page + 1} / {totalPages}
           </span>
 
-
           <button
+            type="button"
             onClick={() =>
-              setPage((prev) => (prev + 1) % totalPages)
+              setPage(
+                (prev) => (prev + 1) % totalPages
+              )
             }
           >
             →
@@ -542,8 +963,136 @@ function LeadershipTeamGrid() {
 
         </div>
 
-
       </div>
+
+      {/* ================= PROFILE MODAL ================= */}
+
+      {selectedMember && (
+
+        <div
+          className="slr-profile-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="profile-modal-title"
+
+          onClick={() => setSelectedMember(null)}
+        >
+
+          <div
+            className="slr-profile-modal-content"
+
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            {/* CLOSE BUTTON */}
+
+            <button
+              type="button"
+              className="slr-profile-close"
+              onClick={() => setSelectedMember(null)}
+              aria-label="Close profile"
+            >
+              ×
+            </button>
+
+
+            {/* PROFILE IMAGE */}
+
+            <div className="slr-profile-image">
+
+              <Avatar
+                photo={selectedMember.photo}
+                name={selectedMember.name}
+              />
+
+            </div>
+
+
+            {/* PROFILE DETAILS */}
+
+            <div className="slr-profile-details">
+
+              <span className="slr-eyebrow">
+                Leadership Profile
+              </span>
+
+              <h2 id="profile-modal-title">
+                {selectedMember.name}
+              </h2>
+
+              <div className="slr-profile-designation">
+                {selectedMember.designation}
+              </div>
+
+
+              <div className="slr-profile-info">
+
+                <div>
+                  <strong>Department</strong>
+                  <span>
+                    {selectedMember.department}
+                  </span>
+                </div>
+
+                <div>
+                  <strong>Location</strong>
+                  <span>
+                    {selectedMember.location}
+                  </span>
+                </div>
+
+              </div>
+
+
+              {/* BIO */}
+
+              <div className="slr-profile-about">
+
+                <h4>About</h4>
+
+                <p>
+                  {selectedMember.bio ||
+                    `${selectedMember.name} is a key member of the SLR Metaliks leadership team, contributing to the organization's growth, operational excellence, and long-term vision.`}
+                </p>
+
+              </div>
+
+
+              {/* CONTACT */}
+
+              <div className="slr-profile-actions">
+
+                <a
+                  href={selectedMember.email}
+                  className="slr-profile-email"
+                >
+                  ✉ Email
+                </a>
+
+                {selectedMember.linkedin &&
+                  selectedMember.linkedin !== "#" && (
+
+                    <a
+                      href={selectedMember.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slr-profile-linkedin"
+                    >
+                      in LinkedIn
+                    </a>
+
+                  )}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
     </section>
   );
 }

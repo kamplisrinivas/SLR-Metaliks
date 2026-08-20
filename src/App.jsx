@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -13,7 +14,6 @@ import TestimonialsCTA from "./components/TestimonialsCTA";
 import Footer from "./components/Footer";
 
 import Aboutpage from "./pages/Aboutpage";
-
 import Leadershippage from "./pages/Leadershippage";
 import Milestone from "./pages/Milestone";
 import Products from "./pages/Products";
@@ -29,10 +29,33 @@ import RequestSamplePage from "./pages/Requestsamplepage";
 
 import "./App.css";
 
+/* =========================================
+   SCROLL TO TOP
+========================================= */
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  return null;
+}
+
+/* =========================================
+   HOME PAGE
+========================================= */
+
 function HomePage() {
   return (
     <>
       <Hero />
+
       <div className="content-wrapper">
         <Stats />
         <AboutSection />
@@ -42,36 +65,75 @@ function HomePage() {
         <SustainabilitySection />
         <NewsSection />
         <TestimonialsCTA />
-        <Footer />
       </div>
     </>
   );
 }
 
+/* =========================================
+   APP
+========================================= */
+
 function App() {
   return (
     <BrowserRouter>
+
+      {/* Always move page to top when route changes */}
+      <ScrollToTop />
+
       <Navbar />
 
       <Routes>
+
+        {/* HOME */}
         <Route path="/" element={<HomePage />} />
+
+        {/* ABOUT */}
         <Route path="/about" element={<Aboutpage />} />
+
+        {/* LEADERSHIP */}
         <Route path="/leadership" element={<Leadershippage />} />
+
+        {/* MILESTONE */}
         <Route path="/milestone" element={<Milestone />} />
+
+        {/* PRODUCTS */}
         <Route path="/products" element={<Products />} />
+
+        {/* APPLICATIONS */}
         <Route path="/applications" element={<Applications />} />
+
+        {/* PLANT */}
         <Route path="/plant" element={<Plant />} />
+
+        {/* AUTOMATION */}
         <Route path="/automation" element={<Automation />} />
+
+        {/* SUSTAINABILITY */}
         <Route path="/sustainability" element={<Sustainability />} />
+
+        {/* SOURCING */}
         <Route path="/sourcing" element={<Sourcing />} />
+
+        {/* CLIENTS */}
         <Route path="/clients" element={<Clients />} />
-        <Route path="/Careers" element={<Careers />} />
+
+        {/* CAREERS */}
+        <Route path="/careers" element={<Careers />} />
+
+        {/* CONTACT */}
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/RequestSamplePage" element={<RequestSamplePage /> } />
+
+        {/* REQUEST SAMPLE */}
+        <Route
+          path="/RequestSamplePage"
+          element={<RequestSamplePage />}
+        />
 
       </Routes>
 
       <Footer />
+
     </BrowserRouter>
   );
 }

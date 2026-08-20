@@ -93,7 +93,7 @@
 .slr-steel-icon {
   width: 46px;
   height: 46px;
-  margin: 0 auto 14px;
+  margin: 0 auto 14px; 
   border-radius: 50%;
   background: var(--white);
   border: 1.5px solid var(--copper);

@@ -6,6 +6,7 @@
    deep navy is used only for the two "dramatic dark"
    sections the spec called for (Chairman spotlight, CTA).
    ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 
 .slr-about {
   --maroon: #7E1F2B;
@@ -234,12 +235,13 @@
 .slr-chairman .slr-avatar-initials { font-size: 72px; background: linear-gradient(145deg, rgba(238, 236, 236, 0.08), transparent); }
 .slr-chairman-eyebrow { color: var(--copper-light); }
 .slr-chairman-name {
-  color: #fff;
+  color: #fff !important;
   font-size: clamp(30px, 3.6vw, 44px);
   font-weight: 700;
   line-height: 1.15;
   margin: 10px 0 0;
 }
+
 .slr-chairman-position {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -270,35 +272,60 @@
 }
 .slr-chairman-meta .num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px; color: var(--white); }
 .slr-chairman-meta .lbl { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
-.slr-chairman-awards { margin-top: 24px; }
+.slr-chairman-awards {
+  margin-top: 24px;
+}
+
 .slr-chairman-awards h4 {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.55);
+  color: #ffffff !important;
   margin-bottom: 10px;
 }
-.slr-chairman-awards ul { display: flex; flex-direction: column; gap: 6px; }
+
+.slr-chairman-awards ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+
 .slr-chairman-awards li {
   font-size: 14px;
-  color: rgba(255,255,255,0.85);
+  color: #fff;
   padding-left: 16px;
   position: relative;
 }
+
 .slr-chairman-awards li::before {
   content: '\2726';
-  position: absolute; left: 0; top: 1px;
-  color: var(--copper-light);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #fff;
   font-size: 11px;
 }
+
 .slr-chairman-signature {
-  margin-top: 28px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-style: italic;
-  font-size: 26px;
-  color: var(--copper-light);
+  margin-top: 32px;
+
+  font-family: "Allura", cursive;
+  font-size: 46px;
+  font-weight: 400;
+
+  color: #ffffff;
+
+  display: inline-block;
+
+  transform: rotate(-3deg);
+
+  letter-spacing: 1px;
 }
+
+
 
 /* ---------- LEADERSHIP TEAM GRID (16) ---------- */
 .slr-team-grid {
@@ -633,4 +660,804 @@
   .slr-lead-hero-inner, .slr-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
   .slr-lead-hero-bg { animation: none; }
   * { transition: none !important; }
+}
+
+
+/* =========================================
+   PROFILE MODAL
+========================================= */
+
+.slr-profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(10, 15, 25, 0.78);
+
+  backdrop-filter: blur(8px);
+
+  animation: slrModalFade 0.25s ease;
+}
+
+
+.slr-profile-modal-content {
+  position: relative;
+
+  width: min(900px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: 300px 1fr;
+
+  background: #fff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+
+  animation: slrModalSlide 0.3s ease;
+}
+
+
+/* IMAGE */
+
+.slr-profile-image {
+  min-height: 450px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #651b2a,
+      #9b4b3f
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+
+.slr-profile-image img,
+.slr-profile-image .slr-avatar-initials {
+  width: 100%;
+  height: 100%;
+
+  max-height: 390px;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+}
+
+
+.slr-profile-image .slr-avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 70px;
+  font-weight: 700;
+
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* DETAILS */
+
+.slr-profile-details {
+  position: relative;
+
+  padding: 50px 45px;
+}
+
+
+.slr-profile-details h2 {
+  margin: 8px 0 5px;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  color: #20232a;
+}
+
+
+.slr-profile-designation {
+  color: #8d3f3f;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  margin-bottom: 28px;
+}
+
+
+/* INFO */
+
+.slr-profile-info {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  margin-bottom: 28px;
+}
+
+
+.slr-profile-info div {
+  padding: 15px;
+
+  border-radius: 10px;
+
+  background: #f7f3ef;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.slr-profile-info strong {
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  color: #777;
+}
+
+
+.slr-profile-info span {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #292929;
+}
+
+
+/* ABOUT */
+
+.slr-profile-about {
+  margin-top: 10px;
+}
+
+
+.slr-profile-about h4 {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+
+  color: #20232a;
+}
+
+
+.slr-profile-about p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* ACTIONS */
+
+.slr-profile-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+.slr-profile-actions a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+
+.slr-profile-email {
+  color: #fff;
+
+  background: #7d2838;
+}
+
+
+.slr-profile-email:hover {
+  background: #5f1e2b;
+}
+
+
+.slr-profile-linkedin {
+  color: #fff;
+
+  background: #1769aa;
+}
+
+
+.slr-profile-linkedin:hover {
+  background: #0e4f83;
+}
+
+
+/* CLOSE */
+
+.slr-profile-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  z-index: 10;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f2f2f2;
+
+  color: #333;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+
+.slr-profile-close:hover {
+  background: #7d2838;
+
+  color: #fff;
+
+  transform: rotate(90deg);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes slrModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes slrModalSlide {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .slr-profile-modal {
+    padding: 15px;
+  }
+
+
+  .slr-profile-modal-content {
+    grid-template-columns: 1fr;
+
+    max-height: 92vh;
+  }
+
+
+  .slr-profile-image {
+    min-height: 280px;
+
+    padding: 20px;
+  }
+
+
+  .slr-profile-image img,
+  .slr-profile-image .slr-avatar-initials {
+    max-height: 250px;
+  }
+
+
+  .slr-profile-details {
+    padding: 30px 25px;
+  }
+
+
+  .slr-profile-details h2 {
+    font-size: 27px;
+  }
+
+
+  .slr-profile-info {
+    grid-template-columns: 1fr;
+  }
+
+
+  .slr-profile-actions {
+    flex-direction: column;
+  }
+
+
+  .slr-profile-actions a {
+    width: 100%;
+  }
+
+}
+
+/* =========================================
+   BOARD DIRECTOR PROFILE MODAL
+========================================= */
+
+.slr-director-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(10, 15, 25, 0.8);
+
+  backdrop-filter: blur(8px);
+
+  animation: directorModalFade 0.25s ease;
+}
+
+
+/* MODAL */
+
+.slr-director-modal-content {
+  position: relative;
+
+  width: min(900px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  display: grid;
+
+  grid-template-columns: 350px 1fr;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4);
+
+  animation: directorModalSlide 0.3s ease;
+}
+
+
+/* PHOTO */
+
+/* =========================================
+   BOARD DIRECTOR PROFILE PHOTO
+========================================= */
+
+.slr-director-modal-photo {
+  min-height: 500px;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    145deg,
+    #641c2c,
+    #9a493e
+  );
+}
+
+.slr-director-modal-photo img {
+  display: block;
+
+  width: 100%;
+  max-width: 300px;
+
+  height: auto;
+  max-height: 440px;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 14px;
+
+  background: #fff;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Initials fallback */
+
+.slr-director-modal-photo .slr-avatar-initials {
+  width: 100%;
+  height: 440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: #fff;
+
+  font-size: 70px;
+  font-weight: 700;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* DETAILS */
+
+.slr-director-modal-details {
+  padding: 50px 45px;
+}
+
+
+.slr-director-modal-details h2 {
+  margin: 10px 0 5px;
+
+  color: #20232a;
+
+  font-size: 34px;
+
+  line-height: 1.2;
+}
+
+
+.slr-director-modal-position {
+  margin-bottom: 25px;
+
+  color: #8d3f3f;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+/* EXPERIENCE */
+
+.slr-director-experience {
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 16px 18px;
+
+  margin-bottom: 28px;
+
+  background: #f7f3ef;
+
+  border-left: 4px solid #8d3f3f;
+
+  border-radius: 8px;
+}
+
+
+.slr-director-experience-number {
+  color: #7d2838;
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+
+.slr-director-experience-label {
+  color: #777;
+
+  font-size: 13px;
+
+  margin-top: 3px;
+}
+
+
+/* ABOUT */
+
+.slr-director-about h4 {
+  margin: 0 0 10px;
+
+  color: #222;
+
+  font-size: 19px;
+}
+
+
+.slr-director-about p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* ACTIONS */
+
+.slr-director-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+.slr-director-actions a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+
+.slr-director-email {
+  color: #fff;
+
+  background: #7d2838;
+}
+
+
+.slr-director-email:hover {
+  background: #5f1e2b;
+}
+
+
+.slr-director-linkedin {
+  color: #fff;
+
+  background: #1769aa;
+}
+
+
+.slr-director-linkedin:hover {
+  background: #0e4f83;
+}
+
+
+/* CLOSE */
+
+.slr-director-close {
+  position: absolute;
+
+  top: 15px;
+
+  right: 15px;
+
+  z-index: 10;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f2f2f2;
+
+  color: #333;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+
+.slr-director-close:hover {
+  background: #7d2838;
+
+  color: white;
+
+  transform: rotate(90deg);
+}
+
+
+/* ANIMATION */
+
+@keyframes directorModalFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes directorModalSlide {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(30px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .slr-director-modal {
+    padding: 15px;
+  }
+
+
+  .slr-director-modal-content {
+    grid-template-columns: 1fr;
+
+    max-height: 92vh;
+  }
+
+
+  .slr-director-modal-photo {
+    min-height: 280px;
+
+    padding: 20px;
+  }
+
+
+  .slr-director-modal-photo img,
+  .slr-director-modal-photo .slr-avatar-initials {
+    height: 250px;
+  }
+
+
+  .slr-director-modal-details {
+    padding: 30px 25px;
+  }
+
+
+  .slr-director-modal-details h2 {
+    font-size: 27px;
+  }
+
+
+  .slr-director-actions {
+    flex-direction: column;
+  }
+
+
+  .slr-director-actions a {
+    width: 100%;
+  }
+
+}
+
+.slr-director-full-bio {
+  margin-top: 10px;
+}
+
+.slr-director-full-bio p {
+  margin: 0 0 16px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.slr-director-full-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.slr-app-title {
+  text-align: center;
+  width: 100%;
 }

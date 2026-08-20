@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Aboutpage.css';
-import './ContactPage.css';
+import './Contactpage.css';
 
 /*
   SLR Metaliks — Contact Us Page

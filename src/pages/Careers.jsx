@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import './Careers.css';
 
 /*

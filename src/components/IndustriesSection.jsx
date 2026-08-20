@@ -4,7 +4,7 @@ import infrastructure from "../images/infrastructure.jpg";
 import construction from "../images/Construction.jpg";
 import railways from "../images/Railways.jpg";
 import automotive from "../images/Automotive.jpg";
-import energy from "../images/energy.jpg";
+import energy from "../images/Energy.jpg";
 
 const industries = [
   {

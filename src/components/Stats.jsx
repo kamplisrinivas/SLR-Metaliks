@@ -6,7 +6,7 @@ const stats = [
     label: "Years of Excellence",
   },
   {
-    number: "0.4M+",
+    number: "0.7M+",
     label: "Tons Annual Capacity",
   },
   {

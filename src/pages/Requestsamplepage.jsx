@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import './AboutPage.css';
-import './RequestSamplePage.css';
+import './Aboutpage.css';
+import './RequestSamplepage.css';
 
 /*
   SLR Metaliks — Request a Sample Page

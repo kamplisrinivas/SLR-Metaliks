@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import './Plant.css';
 
 import sp2 from '../images/sp2.png';

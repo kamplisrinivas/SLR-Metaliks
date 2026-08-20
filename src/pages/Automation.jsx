@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import './Automation.css';
 
 /*

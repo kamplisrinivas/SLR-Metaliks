@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import './AboutPage.css';
+import './Aboutpage.css';
 import './Clients.css';
 
 import client1 from '../images/1.webp';

@@ -26,7 +26,7 @@ const NAV_LINKS = [
 
 const HERO_STATS = [
   { num: '21+', label: 'Years of Excellence' },
-  { num: '0.4M+', label: 'Tons Annual Capacity' },
+  { num: '0.7 M+', label: 'Tons Annual Capacity' },
   { num: '20+', label: 'Countries Served' },
 ];
 
@@ -111,7 +111,7 @@ function OurStory() {
           <p>
             SLR Metaliks started as a pig iron manufacturer in Hosapete, Karnataka.
             A strategic joint venture brought in the capital to build out a full
-            sinter, blast furnace, and steelmaking shop on one 300-acre site &mdash;
+            sinter, blast furnace, Coke Oven and steelmaking shop on one 300-acre site &mdash;
             turning a single-product unit into an integrated alloy steel producer.
           </p>
           <p>
@@ -138,12 +138,12 @@ function OurStory() {
   src={mdImage}
   alt="Managing Director - SLR Metaliks"
 />
-          <div className="slr-media-inset">
+          {/* <div className="slr-media-inset">
             <img
               src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800&auto=format&fit=crop"
               alt="Steel billets ready for rolling"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

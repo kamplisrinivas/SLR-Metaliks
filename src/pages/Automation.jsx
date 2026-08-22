@@ -76,6 +76,34 @@ const DIVISIONS = [
       },
     ],
   },
+
+   {
+    id: 'coke-oven-plant',
+    label: 'Coke Oven Plant',
+    intro: 'Automation and process control systems for coke oven batteries, coal handling, coke handling, and associated utility systems.',
+    systems: [
+      {
+        name: 'Coke Oven Plant Control',
+        slug: 'coke-oven-automation',
+        tech: 'PLC + HMI + SCADA',
+        redundant: true,
+        hmiCount: 3,
+        engineeringStations: 1,
+        desc: 'The Level-1 automation system provides centralized monitoring and control of the Coke Oven Plant, including coal handling, coke oven battery operations, coke handling, gas systems, and associated utility facilities. The automation architecture provides process monitoring, equipment interlocks, alarm management, and operator control through HMI stations.',
+        monitors: [
+          'Coal handling and charging system',
+          'Coke oven battery process monitoring and control',
+          'Coke pushing and coke handling systems',
+          'Coke oven gas and associated gas system monitoring',
+          'Quenching and coke cooling system',
+          'Equipment interlocks and protection systems',
+          'Process alarms and operator monitoring through HMI',
+          'Historical process data and trend monitoring'
+        ],
+      },
+    ],
+  },
+  
   {
     id: 'power-plant',
     label: 'Power Plant Division',

@@ -5,18 +5,19 @@ import Timblo from '../images/Timblo.webp';
 import Rajat from '../images/Rajat.webp';
 import Misra from '../images/Misra.webp';
 import anil from '../images/anil.webp';
-import Yogendra from '../images/Yogendra.webp';
-import Gaur from '../images/Gaur.webp';
-import Goel from '../images/Goel.webp';
-import Naveen from '../images/Naveen.webp';
-import Ajay from '../images/Ajay.webp';
-import Ramji from '../images/Ramji.webp';
-import Vijay from '../images/Vijay.webp';
-import Vivek from '../images/Vivek.webp';
-import Avinash from '../images/Avinash.webp';
-import Prakash from '../images/Prakash.webp';
-import Alok from '../images/Alok.webp';
-import Dj from '../images/Dj.webp';
+import Yogendra from '../images/Yogendra.png';
+import Gaur from '../images/Gaur.png';
+import Goel from '../images/Goel.png';
+import Naveen from '../images/Naveen.png';
+import Ajay from '../images/Ajay.png';
+import Ramji from '../images/Ramji.png';
+import Vijay from '../images/Vijay.png';
+import Vivek from '../images/Vivek.png';
+import Avinash from '../images/Avinash.png';
+import Prakash from '../images/Prakash.png';
+import Alok from '../images/Alok.png';
+import Dj from '../images/Dj.png';
+import krishnamoorthy from '../images/krishnamoorthy.png';
 
 
 /*
@@ -163,14 +164,31 @@ He is presently serving as Chairman of India Power Corporation Ltd.`,
     email: "mailto:name@slrmetaliks.com",
     photo: anil,
   },
+
+  {
+  id: "b6",
+  name: "Mr. Sridhar Krishnamoorthy",
+  position: "Independent Director",
+
+  bio: "Mr. Sridhar Krishnamoorthy serves as an Independent Director of SLR Metaliks, bringing an independent perspective and professional expertise to the Board.",
+
+  fullBio: `Mr. Sridhar Krishnamoorthy serves as an Independent Director of SLR Metaliks.
+
+He brings his professional experience and independent perspective to the Board, supporting effective governance, strategic decision-making, and long-term organizational growth.`,
+
+  experience: "42+ Years",
+  linkedin: "https://www.linkedin.com/in/sridhar-krishnamoorthy-/",
+  email: "mailto:name@slrmetaliks.com",
+  photo: krishnamoorthy,
+},
 ];
  
 
 const CHAIRMAN = {
   name: 'Mr. Rajkumar Goel',
-  position: 'Chairman & Founder',
+  position: 'Founder & Managing Director',
   quote: 'Our vision has always been to build a steel enterprise driven by quality, innovation, and a commitment to sustainable growth.',
-  bio: 'Mr. Rajkumar Goel is the Chairman & Founder of SLR Metaliks, guiding the company with a strong focus on operational excellence, customer satisfaction, and continuous improvement. Under his leadership, SLR Metaliks has grown as an integrated steel manufacturer known for quality products, advanced manufacturing practices, and responsible business operations.',
+  bio: 'Mr. Rajkumar Goel is the Founder & Managing Director of SLR Metaliks, guiding the company with a strong focus on operational excellence, customer satisfaction, and continuous improvement. Under his leadership, SLR Metaliks has grown as an integrated steel manufacturer known for quality products, advanced manufacturing practices, and responsible business operations.',
   experience: '25+ Years',
   awards: [
     'Leadership excellence in the steel industry',
@@ -224,7 +242,7 @@ const LEADERSHIP = [
   },
   {
     id: 'l5',
-    name: 'Mr. Vinnet Goel',
+    name: 'Mr. Vineet Goel',
     designation: 'Vice President',
     department: 'Marketing',
     location: 'Pune',
@@ -336,7 +354,7 @@ const VALUES = [
 ];
 
 const STATS = [
-  { num: 5, suffix: '', label: 'Board Members' },
+  { num: 6, suffix: '', label: 'Board Members' },
   { num: 16, suffix: '+', label: 'Leadership Members' },
   { num: 20, suffix: '+', label: 'Years of Leadership Experience' },
   { num: 34, suffix: '+', label: 'Departments' },
@@ -346,7 +364,7 @@ const STATS = [
 const TESTIMONIALS = [
   {
     photo: Goel,
-    name: "Mr. Vinnet Goel",
+    name: "Mr. Vineet Goel",
     position: "Board Member",
     quote:
       "Our vision is to build a future-ready organization driven by innovation, operational excellence, and an unwavering commitment to quality. Every milestone reflects the trust our customers place in us."
@@ -521,7 +539,7 @@ function BoardOfDirectors() {
           </h2>
 
           <p>
-            Five board members bringing decades of combined
+            Six board members bringing decades of combined
             industry and governance experience.
           </p>
         </div>
@@ -767,7 +785,7 @@ function ChairmanSpotlight() {
         </Reveal>
         <Reveal>
           <div>
-            <span className="slr-eyebrow slr-chairman-eyebrow">Chairman's Message</span>
+            <span className="slr-eyebrow slr-chairman-eyebrow">Founder Message</span>
             <h2 className="slr-chairman-name">{CHAIRMAN.name}</h2>
             <div className="slr-chairman-position">{CHAIRMAN.position}</div>
             <p className="slr-chairman-quote">&ldquo;{CHAIRMAN.quote}&rdquo;</p>

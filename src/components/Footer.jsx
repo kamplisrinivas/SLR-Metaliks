@@ -39,8 +39,8 @@ export default function Footer() {
           <a href="mailto:info@slrmetaliks.com">
             info@slrmetaliks.com
           </a>
-          <a href="tel:+919999999999">
-            +91 XXXXX XXXXX
+          <a href="tel:+91-8394-294061">
+            +91-8394-294061 (Marketing)-228
           </a>
         </div>
 

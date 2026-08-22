@@ -42,7 +42,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-card">
-          <h3>0.4M+</h3>
+          <h3>0.7M+</h3>
           <p>Tons Annual Capacity</p>
         </div>
 

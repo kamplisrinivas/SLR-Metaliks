@@ -102,8 +102,9 @@
 /* ---------- BOARD OF DIRECTORS ---------- */
 .slr-board-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
 }
 .slr-board-card {
   position: relative;
@@ -203,10 +204,15 @@
   display: inline-flex; align-items: center; gap: 4px;
 }
 
+@media (max-width: 1200px) {
+  .slr-board-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 /* ---------- CHAIRMAN SPOTLIGHT ---------- */
 .slr-chairman {
   position: relative;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  background: linear-gradient(135deg, #6B0000 0%, #333333 100%);
   color: var(--white);
   overflow: hidden;
 }

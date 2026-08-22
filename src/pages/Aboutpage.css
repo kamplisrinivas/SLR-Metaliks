@@ -355,7 +355,7 @@ div.slr-about h4 {
   z-index: 1;
 }
 .slr-milestone h4 {
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -417,7 +417,7 @@ div.slr-about h4 {
   font-size: 20px;
   margin-bottom: 20px;
 }
-.slr-value-card h4 { font-size: 17px; margin-bottom: 10px; }
+.slr-value-card h4 { font-size: 20px; margin-bottom: 10px; }
 .slr-value-card p { font-size: 14px; color: var(--text-gray); line-height: 1.7; }
 
 /* ---------- LEADERSHIP QUOTE (dark) ---------- */

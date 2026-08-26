@@ -17,7 +17,11 @@ import Avinash from '../images/Avinash.png';
 import Prakash from '../images/Prakash.png';
 import Alok from '../images/Alok.png';
 import Dj from '../images/Dj.png';
+import anilb from '../images/anilb.png';
+import hirehal from '../images/hirehal.png';
 import krishnamoorthy from '../images/krishnamoorthy.png';
+import vn from '../images/vn.png';
+import cp from '../images/cp.png';
 
 
 /*
@@ -59,7 +63,7 @@ He also plays an important role as a facilitator for various Group Companies. He
 
 He firmly believes that the success and growth of SLR are driven by its people and the strength of its TEAM.`,
 
-    experience: "25+ Years",
+    experience: "45+ Years",
     linkedin: "#",
     email: "mailto:md@slrm.com",
     photo: MDImage,
@@ -84,7 +88,7 @@ Mr. Ambar presently serves as the President of the Goa Mineral Ore Exporters' As
 
 During his school and college years, he was a nationally ranked badminton player. Beyond his professional commitments, he values family life and has been married to Vinni for 24 years. They have two children, Adi and Sara, along with their dogs, Atticus and Bailey Rae.`,
 
-    experience: "22+ Years",
+    experience: "27+ Years",
     linkedin: "#",
     email: "mailto:name@slrmetaliks.com",
     photo: Timblo,
@@ -107,7 +111,7 @@ Mr. Rajat Goel has inherited a strong business sense and valuable learning from 
 
 He is a key member of the Senior Management Team and plays an important role in the growth of the organization. His responsibilities include supervision of corporate functions and contributing to strategic initiatives across the Group.`,
 
-    experience: "20+ Years",
+    experience: "15+ Years",
     linkedin: "#",
     email: "mailto:name@slrmetaliks.com",
     photo: Rajat,
@@ -130,7 +134,7 @@ He is associated with various companies at the Director level and is also associ
 
 His extensive financial expertise and strategic understanding contribute to effective financial planning, governance and organizational decision-making.`,
 
-    experience: "21+ Years",
+    experience: "45+ Years",
     linkedin: "#",
     email: "mailto:name@slrmetaliks.com",
     photo: Misra,
@@ -189,7 +193,7 @@ const CHAIRMAN = {
   position: 'Founder & Managing Director',
   quote: 'Our vision has always been to build a steel enterprise driven by quality, innovation, and a commitment to sustainable growth.',
   bio: 'Mr. Rajkumar Goel is the Founder & Managing Director of SLR Metaliks, guiding the company with a strong focus on operational excellence, customer satisfaction, and continuous improvement. Under his leadership, SLR Metaliks has grown as an integrated steel manufacturer known for quality products, advanced manufacturing practices, and responsible business operations.',
-  experience: '25+ Years',
+  experience: '45+ Years',
   awards: [
     'Leadership excellence in the steel industry',
     'Contribution towards integrated steel manufacturing',
@@ -333,12 +337,52 @@ const LEADERSHIP = [
   {
     id: '24',
     name: 'Mr. Dhananjay Kumar',
-    designation: 'HEAD',
+    designation: 'HR-HEAD',
     department: 'HR and Admin',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
     linkedin: '#',
     photo: Dj,
+  },
+  {
+    id: '25',
+    name: 'Mr. Anil Kumar B',
+    designation: 'Assistant General Manager',
+    department: 'MIS & IT',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:misit@slrm.com',
+    linkedin: '#',
+    photo: anilb,
+  },
+  {
+    id: '26',
+    name: 'Mr. Chandapasha  ',
+    designation: 'General Manager',
+    department: 'UTILITY',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:chand@slrm.co.in',
+    linkedin: '#',
+    photo: cp,
+  },
+{
+    id: '27',
+    name: 'Mr. Imtiaz Ali R Hirehal',
+    designation: 'General Manager',
+    department: 'POWER PLANT',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:	ir_hirehal@slrm.co.in',
+    linkedin: '#',
+    photo: hirehal,
+  },
+{
+    id: '28',
+    name: 'Mr. Vijay',
+    designation: 'Senior Deputy General Manager',
+    department: 'SECURITY',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:vijay_nehra@slrm.in',
+    linkedin: '#',
+    photo: vn,
   },
 
 
@@ -355,7 +399,7 @@ const VALUES = [
 
 const STATS = [
   { num: 6, suffix: '', label: 'Board Members' },
-  { num: 16, suffix: '+', label: 'Leadership Members' },
+  { num: 18, suffix: '+', label: 'Leadership Members' },
   { num: 20, suffix: '+', label: 'Years of Leadership Experience' },
   { num: 34, suffix: '+', label: 'Departments' },
   { num: 10, suffix: '+', label: 'Projects' },
@@ -365,7 +409,7 @@ const TESTIMONIALS = [
   {
     photo: Goel,
     name: "Mr. Vineet Goel",
-    position: "Board Member",
+    position: "Vice President",
     quote:
       "Our vision is to build a future-ready organization driven by innovation, operational excellence, and an unwavering commitment to quality. Every milestone reflects the trust our customers place in us."
   },

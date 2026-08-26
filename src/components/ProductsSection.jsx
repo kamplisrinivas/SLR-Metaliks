@@ -9,12 +9,8 @@ import fbar from "../images/fbar.webp";
 
 const products = [
   {
-    name: "Pig Iron",
-    image: pigIron,
-  },
-  {
-    name: "Billets",
-    image: billets,
+    name: "Round Bar",
+    image: rbar,
   },
   {
     name: "Peeled Bar",
@@ -25,13 +21,18 @@ const products = [
     image: hbar,
   },
   {
-    name: "Round Bar",
-    image: rbar,
-  },
-  {
     name: "Flat Bar",
     image: fbar,
   },
+  {
+    name: "Pig Iron",
+    image: pigIron,
+  },
+  {
+    name: "Billets",
+    image: billets,
+  },
+  
 ];
 
 export default function ProductsSection() {

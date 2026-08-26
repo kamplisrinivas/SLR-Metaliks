@@ -1,28 +1,26 @@
 import "./IndustriesSection.css";
 
 import infrastructure from "../images/infrastructure.jpg";
-import construction from "../images/Construction.jpg";
-import railways from "../images/Railways.jpg";
+
+import Bearing from "../images/Bearing.jpg";
 import automotive from "../images/Automotive.jpg";
 import energy from "../images/Energy.jpg";
 
 const industries = [
   {
-    name: "Infrastructure",
-    image: infrastructure,
-  },
-  {
-    name: "Construction",
-    image: construction,
-  },
-  {
-    name: "Railways",
-    image: railways,
-  },
-  {
     name: "Automotive",
     image: automotive,
   },
+  {
+    name: "Infrastructure",
+    image: infrastructure,
+  },
+  
+  {
+    name: "Bearing",
+    image: Bearing,
+  },
+  
   {
     name: "Energy",
     image: energy,

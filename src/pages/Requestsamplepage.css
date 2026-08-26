@@ -42,6 +42,16 @@
 .slr-dem-breadcrumb .slr-accent { color: var(--copper-light); }
 .slr-dem-hero .slr-eyebrow { color: var(--copper-light); justify-content: center; display: flex; }
 .slr-dem-hero h1 { font-size: clamp(30px, 4.6vw, 50px); color: var(--white); max-width: 20ch; margin: 0 auto; }
+.white-title {
+  color: #fff !important;
+}
+.slr-dem-hero h1 {
+  font-size: clamp(30px, 4.6vw, 50px);
+  color: #fff !important;
+  max-width: 20ch;
+  margin: 0 auto;
+}
+
 .slr-dem-hero p { max-width: 60ch; margin: 18px auto 0; font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,0.72); }
 .slr-dem-hero-chips { display: flex; justify-content: center; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 .slr-dem-chip {

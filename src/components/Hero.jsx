@@ -41,10 +41,23 @@ export default function Hero() {
           <p>Years of Excellence</p>
         </div>
 
-        <div className="hero-card">
-          <h3>0.7M+</h3>
-          <p>Tons Annual Capacity</p>
-        </div>
+        <div className="hero-card capacity-card">
+  <h3>0.7M+</h3>
+  <p>Total Annual Capacity</p>
+
+  <div className="capacity-breakdown">
+    <div>
+      <strong>0.4M</strong>
+      <span>Alloy Steel</span>
+    </div>
+
+    <div>
+      <strong>0.3M</strong>
+      <span>Pig Iron</span>
+    </div>
+  </div>
+</div>
+
 
         <div className="hero-card">
           <h3>20+</h3>

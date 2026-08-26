@@ -104,7 +104,8 @@ function SampleHero() {
           <a href="/">Home</a> / <span className="slr-accent">Request a Sample</span>
         </div>
         <span className="slr-eyebrow">Request a Sample</span>
-        <h1>Prove the Grade Before You Commit to Volume</h1>
+        <h1 className="white-title">Prove the Grade Before You Commit to Volume</h1>
+
         <p>
           Request a physical sample of the product and grade you're evaluating â€”
           drawn from real production, tested, and shipped with its mill test

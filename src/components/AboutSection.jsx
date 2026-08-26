@@ -2,6 +2,39 @@ import "./AboutSection.css";
 import aboutImage from "../images/_MG_0532.jpg";
 import wireImage from "../images/wire.jpg"; // Adjust the path if needed
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+const AnimatedCounter = ({ target, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 3000; // 3 seconds
+    const incrementTime = 20;
+    const increment = target / (duration / incrementTime);
+
+    const timer = setInterval(() => {
+      start += increment;
+
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [target]);
+
+  return (
+    <h3>
+      {count}
+      {suffix}
+    </h3>
+  );
+};
+
 
 export default function AboutSection() {
   return (
@@ -30,21 +63,29 @@ export default function AboutSection() {
           </p>
 
           <div className="about-stats">
-            <div className="stat">
-              <h3>35+</h3>
-              <span>Years Experience</span>
-            </div>
+  <div className="stat">
+    <AnimatedCounter target={4} suffix="+" />
+    <span>Expansion Projects</span>
+  </div>
 
-            <div className="stat">
-              <h3>2M+</h3>
-              <span>TPA Capacity</span>
-            </div>
+  <div className="stat">
+    <AnimatedCounter target={16} suffix="+" />
+    <span>Running Projects</span>
+  </div>
 
-            <div className="stat">
-              <h3>1500+</h3>
-              <span>Employees</span>
-            </div>
-          </div>
+  <div className="stat">
+    <AnimatedCounter target={415} suffix="+" />
+    <span>Happy Clients</span>
+  </div>
+
+  <div className="stat">
+    <AnimatedCounter target={13} suffix="+" />
+    <span>Awards</span>
+  </div>
+</div>
+
+
+
 
           <button 
   className="btn-primary"

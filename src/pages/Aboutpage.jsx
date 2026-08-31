@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import mdImage from "../images/MD.jpg";
 import leadershipImg from "../images/leadership-team.jpg"; // Update your image path
 
+
+
 /*
   SLR Metaliks — About Page
   Built to match the visual language of the existing homepage:
@@ -128,10 +130,16 @@ function OurStory() {
             ))}
           </div>
           <div className="slr-split-cta">
-            <a href="/company-profile" className="slr-btn slr-btn-outline-dark">
-              Download Company Profile
-            </a>
-          </div>
+  <a
+    href="/SLR-Brochure-new.pdf"
+    download="SLR-Company-Profile.pdf"
+    className="slr-btn slr-btn-outline-dark"
+  >
+    Download Company Profile
+  </a>
+</div>
+
+
         </div>
         <div className="slr-media-frame">
           <img

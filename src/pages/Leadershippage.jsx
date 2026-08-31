@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Leadershippage.css';
 import MDImage from '../images/MD.jpg';
-import Timblo from '../images/Timblo.webp';
+import Timblo from '../images/timblo.jpg';
 import Rajat from '../images/Rajat.webp';
-import Misra from '../images/Misra.webp';
+import Misra from '../images/misra.jpg';
 import anil from '../images/anil.webp';
 import Yogendra from '../images/Yogendra.png';
 import Gaur from '../images/Gaur.png';

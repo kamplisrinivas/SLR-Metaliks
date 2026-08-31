@@ -2,7 +2,7 @@ import "./IndustriesSection.css";
 
 import infrastructure from "../images/infrastructure.jpg";
 
-import Bearing from "../images/Bearing.jpg";
+import Bearing from "../images/Bearing1.jpg";
 import automotive from "../images/Automotive.jpg";
 import energy from "../images/Energy.jpg";
 

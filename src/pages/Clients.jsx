@@ -42,6 +42,7 @@ import client37 from '../images/37.webp';
 
 
 
+
 /*
   SLR Metaliks — Our Clients Page
 
@@ -65,7 +66,6 @@ import client37 from '../images/37.webp';
   NOTE: Header and Footer aren't rendered here, same assumption as the
   other pages — supplied by a shared Layout elsewhere in the app.
 */
-
 const CLIENTS = [
   {
     id: "01",
@@ -182,151 +182,152 @@ const CLIENTS = [
   {
     id: "17",
     slug: "client-17",
-    name: "Client 17",
+    name: "HERO",
     sector: "Energy",
     logo: client17,
   },
   {
     id: "18",
     slug: "client-18",
-    name: "HERO",
+    name: "ROYAL ENFIELD",
     sector: "Bearing",
     logo: client18,
   },
   {
     id: "19",
     slug: "client-19",
-    name: "ROYAL ENFIELD",
+    name: "TVS",
     sector: "Automotive",
     logo: client19,
   },
   {
     id: "20",
     slug: "client-20",
-    name: "TVS",
+    name: "BHARATH BENZ",
     sector: "Engineering",
     logo: client20,
   },
   {
     id: "21",
     slug: "client-21",
-    name: "BHARATHBENZ",
+    name: "SWARAJ MAZDA",
     sector: "Railways",
     logo: client21,
   },
   {
     id: "22",
     slug: "client-22",
-    name: "SWARAJ MAZDA",
+    name: "NEXTEER",
     sector: "Defence",
     logo: client22,
   },
   {
     id: "23",
     slug: "client-23",
-    name: "Client 23",
+    name: "Cummins",
     sector: "Energy",
     logo: client23,
   },
   {
     id: "24",
     slug: "client-24",
-    name: "Client 24",
+    name: "SEG AUTOMOTIVE",
     sector: "Bearing",
     logo: client24,
   },
   {
     id: "25",
     slug: "client-25",
-    name: "Client 25",
+    name: "TIMKEN",
     sector: "Automotive",
     logo: client25,
   },
   {
     id: "26",
     slug: "client-26",
-    name: "Client 26",
+    name: "RENAULT & NISSAN",
     sector: "Engineering",
     logo: client26,
   },
   {
     id: "27",
     slug: "client-27",
-    name: "Client 27",
+    name: "SUNDARAM FASTENERS LIMITED",
     sector: "Railways",
     logo: client27,
   },
   {
     id: "28",
     slug: "client-28",
-    name: "Client 28",
+    name: "SUNDARAM FASTENERS LIMITED",
     sector: "Defence",
     logo: client28,
   },
   {
     id: "29",
     slug: "client-29",
-    name: "Client 29",
+    name: "BRAKES INDIA",
     sector: "Energy",
     logo: client29,
   },
   {
     id: "30",
     slug: "client-30",
-    name: "Client 30",
+    name: "AAM",
     sector: "Bearing",
     logo: client30,
   },
   {
     id: "31",
     slug: "client-31",
-    name: "Client 31",
+    name: "BONFIGLIOLI",
     sector: "Automotive",
     logo: client31,
   },
   {
     id: "32",
     slug: "client-32",
-    name: "Client 32",
+    name: "DEUTZ FAHR",
     sector: "Engineering",
     logo: client32,
   },
   {
     id: "33",
     slug: "client-33",
-    name: "Client 33",
+    name: "VCST",
     sector: "Railways",
     logo: client33,
   },
   {
     id: "34",
     slug: "client-34",
-    name: "Client 34",
+    name: "WHEELS INDIA LTD",
     sector: "Defence",
     logo: client34,
   },
   {
     id: "35",
     slug: "client-35",
-    name: "Client 35",
+    name: "BHARATH GEARS LTD",
     sector: "Energy",
     logo: client35,
   },
   {
     id: "36",
     slug: "client-36",
-    name: "Client 36",
+    name: "CARRARO",
     sector: "Bearing",
     logo: client36,
   },
   {
     id: "37",
     slug: "client-37",
-    name: "Client 37",
+    name: "STAMPP SCHEDULE SOMAPPA SPRINGS",
     sector: "Automotive",
     logo: client37,
   },
 ];
+
 
 
 const SECTORS = ['Automotive', 'Engineering', 'Railways', 'Defence', 'Energy', 'Bearing'];

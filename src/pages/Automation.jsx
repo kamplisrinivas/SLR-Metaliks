@@ -304,7 +304,8 @@ function SystemCard({ system, isOpen, onToggle, onOpenLightbox }) {
   }, [isOpen]);
 
   return (
-    <div className={`slr-auto-card ${isOpen ? 'is-open' : ''}`}>
+    <div className={`slr-auto-card slr-auto-reveal ${isOpen ? 'is-open' : ''}`}>
+
       <button className="slr-auto-trigger" onClick={onToggle} aria-expanded={isOpen}>
         <span className="slr-auto-node-mini" style={{ display: 'block', overflow: 'hidden' }}>
           <ControlNode hmiCount={system.hmiCount} redundant={system.redundant} compact />
@@ -449,7 +450,8 @@ function DivisionNav({ activeDivision, onNavClick }) {
 
 function DivisionSection({ division, index, openMap, onToggle, onOpenLightbox }) {
   return (
-    <section id={division.id} className="slr-auto-division">
+    <section id={division.id} className="slr-auto-division slr-auto-reveal">
+
       <div className="slr-container">
         <div className="slr-auto-division-head">
           <span className="slr-auto-division-index">DIVISION {String(index + 1).padStart(2, '0')} / {DIVISIONS.length}</span>
@@ -540,21 +542,57 @@ export default function AutomationPage() {
       <AutomationCta />
 
       {lightbox && (
-        <div className="slr-lightbox" role="dialog" aria-modal="true" onClick={closeLightbox}>
-          <button className="slr-lightbox-close" onClick={closeLightbox} aria-label="Close">&times;</button>
-          <button className="slr-lightbox-nav prev" aria-label="Previous image" onClick={(e) => { e.stopPropagation(); stepLightbox(-1); }}>&larr;</button>
-          <ImageThumb
-            src={lightbox.system.images[lightbox.imgIndex]}
-            alt={`${lightbox.system.name} — photo ${lightbox.imgIndex + 1}`}
-            initial={lightbox.system.name[0]}
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button className="slr-lightbox-nav next" aria-label="Next image" onClick={(e) => { e.stopPropagation(); stepLightbox(1); }}>&rarr;</button>
-          <div className="slr-lightbox-caption">
-            {lightbox.system.name} &mdash; {lightbox.imgIndex + 1} / {lightbox.system.images.length}
-          </div>
-        </div>
-      )}
+  <div
+    className="slr-lightbox"
+    role="dialog"
+    aria-modal="true"
+    onClick={closeLightbox}
+  >
+    <button
+      className="slr-lightbox-close"
+      onClick={closeLightbox}
+      aria-label="Close"
+    >
+      &times;
+    </button>
+
+    <button
+      className="slr-lightbox-nav prev"
+      aria-label="Previous image"
+      onClick={(e) => {
+        e.stopPropagation();
+        stepLightbox(-1);
+      }}
+    >
+      &larr;
+    </button>
+
+    <ImageThumb
+      key={`${lightbox.system.slug}-${lightbox.imgIndex}`}
+      src={lightbox.system.images[lightbox.imgIndex]}
+      alt={`${lightbox.system.name} — photo ${lightbox.imgIndex + 1}`}
+      initial={lightbox.system.name[0]}
+      onClick={(e) => e.stopPropagation()}
+    />
+
+    <button
+      className="slr-lightbox-nav next"
+      aria-label="Next image"
+      onClick={(e) => {
+        e.stopPropagation();
+        stepLightbox(1);
+      }}
+    >
+      &rarr;
+    </button>
+
+    <div className="slr-lightbox-caption">
+      {lightbox.system.name} &mdash; {lightbox.imgIndex + 1} /{' '}
+      {lightbox.system.images.length}
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

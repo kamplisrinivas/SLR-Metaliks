@@ -236,34 +236,102 @@ function AccordionItem({ app, isOpen, onToggle, onOpenLightbox }) {
   );
 }
 
+
+
+function useScrollReveal() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      '.slr-app-reveal, .slr-app-item, .slr-app-other-card'
+    );
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slr-app-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    elements.forEach((element) => {
+      element.classList.add('slr-app-reveal');
+
+      // Stagger cards based on their position
+      const index = [...element.parentElement.children].indexOf(element);
+
+      if (
+        element.classList.contains('slr-app-item') ||
+        element.classList.contains('slr-app-other-card')
+      ) {
+        element.style.setProperty(
+          '--reveal-delay',
+          `${Math.min(index * 70, 420)}ms`
+        );
+      }
+
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+}
+
+
 function ApplicationsHero() {
-  const totalGrades = APPLICATIONS.reduce((sum, a) => sum + gradeCount(a), 0)
-    + OTHER_APPLICATIONS.reduce((sum, a) => sum + a.codes.length, 0);
+  const totalGrades =
+    APPLICATIONS.reduce((sum, a) => sum + gradeCount(a), 0) +
+    OTHER_APPLICATIONS.reduce((sum, a) => sum + a.codes.length, 0);
 
   return (
     <section className="slr-app-hero">
       <div className="slr-container">
-        <div className="slr-app-breadcrumb">
-          <a href="/">Home</a> / <span className="slr-accent">Applications</span>
+
+        <div className="slr-app-breadcrumb slr-app-hero-reveal">
+          <a href="/">Home</a> /{' '}
+          <span className="slr-accent">Applications</span>
         </div>
-        <span className="slr-eyebrow">Applications</span>
-        <h1 className="slr-app-title">
-  Steel Engineered for Every Component
-</h1>
-        <p>
+
+        <span className="slr-eyebrow slr-app-hero-reveal">
+          Applications
+        </span>
+
+        <h1 className="slr-app-title slr-app-hero-reveal">
+          Steel Engineered for Every Component
+        </h1>
+
+        <p className="slr-app-hero-reveal">
           From crankshafts to stabilizer bars, our alloy and special steel grades
           are specified into the components that keep vehicles, machinery, and
           equipment running.
         </p>
-        <div className="slr-app-hero-chips">
-          <div className="slr-app-chip"><b>{APPLICATIONS.length}</b>Core Applications</div>
-          <div className="slr-app-chip"><b>{OTHER_APPLICATIONS.length}</b>More Components</div>
-          <div className="slr-app-chip"><b>{totalGrades}+</b>Grades Specified</div>
+
+        <div className="slr-app-hero-chips slr-app-hero-reveal">
+          <div className="slr-app-chip">
+            <b>{APPLICATIONS.length}</b>Core Applications
+          </div>
+
+          <div className="slr-app-chip">
+            <b>{OTHER_APPLICATIONS.length}</b>More Components
+          </div>
+
+          <div className="slr-app-chip">
+            <b>{totalGrades}+</b>Grades Specified
+          </div>
         </div>
+
       </div>
     </section>
   );
 }
+
 
 function ApplicationsAccordion() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -374,6 +442,8 @@ function ApplicationsCta() {
 }
 
 export default function ApplicationsPage() {
+  useScrollReveal();
+
   return (
     <div className="slr-about">
       <ApplicationsHero />

@@ -27,7 +27,8 @@ import bb3 from '../images/bb3.png';
 import sbf from '../images/sbf.png';
 
 
-import { image } from 'framer-motion/client';
+import { motion, AnimatePresence } from 'framer-motion';
+
 /*
   SLR Metaliks — Manufacturing Plant Page (Hosapete)
   Plain React + CSS, matching AboutPage.css tokens.
@@ -503,9 +504,18 @@ function FacilityItem({ facility, isOpen, onToggle, onOpenLightbox }) {
   return (
     <div className={`slr-plant-item ${isOpen ? 'is-open' : ''}`}>
       <button className="slr-plant-trigger" onClick={onToggle} aria-expanded={isOpen}>
-        <span className="slr-plant-thumb">
-          <ImageThumb src={facility.images[0]} alt="" initial={facility.name[0]} />
-        </span>
+        <motion.span
+  className="slr-plant-thumb"
+  whileHover={{ scale: 1.08 }}
+  transition={{ duration: 0.25 }}
+>
+  <ImageThumb
+    src={facility.images[0]}
+    alt=""
+    initial={facility.name[0]}
+  />
+</motion.span>
+
         <span className="slr-plant-trigger-text">
           <h3>{facility.name}</h3>
           <span className="slr-plant-headline">{facility.headline}</span>
@@ -516,14 +526,28 @@ function FacilityItem({ facility, isOpen, onToggle, onOpenLightbox }) {
         <div className="slr-plant-panel-inner" ref={panelRef}>
           <div className="slr-plant-gallery">
             {facility.images.map((src, i) => (
-              <ImageThumb
-                key={src}
-                src={src}
-                alt={`${facility.name} — photo ${i + 1}`}
-                initial={facility.name[0]}
-                className="slr-plant-gallery-img"
-                onClick={() => onOpenLightbox(i)}
-              />
+              <motion.div
+  key={src}
+  initial={{ opacity: 0, scale: 0.92 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{
+    duration: 0.4,
+    delay: i * 0.08,
+  }}
+  whileHover={{
+    scale: 1.03,
+    y: -4,
+  }}
+>
+  <ImageThumb
+    src={src}
+    alt={`${facility.name} — photo ${i + 1}`}
+    initial={facility.name[0]}
+    className="slr-plant-gallery-img"
+    onClick={() => onOpenLightbox(i)}
+  />
+</motion.div>
+
             ))}
           </div>
 
@@ -559,30 +583,86 @@ function PlantHero() {
   return (
     <section className="slr-plant-hero">
       <div className="slr-container">
-        <div className="slr-plant-breadcrumb">
-          <a href="/">Home</a> / <span className="slr-accent">Manufacturing Plant</span>
-        </div>
-        <span className="slr-eyebrow">Hosapete Plant</span>
+        <motion.div
+          className="slr-plant-breadcrumb"
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <a href="/">Home</a> /{' '}
+          <span className="slr-accent">Manufacturing Plant</span>
+        </motion.div>
+
+        <motion.span
+          className="slr-eyebrow"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          Hosapete Plant
+        </motion.span>
+
         <div className="slr-plant-hero-grid">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.25,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
             <h1 className="slr-plant-title">
-  An Integrated Steel Plant, End to End
-</h1>
+              An Integrated Steel Plant, End to End
+            </h1>
+
             <p>
-              SLR Metaliks operates from Hosapete, Karnataka — a major Indian steel
-              production hub, sited close to abundant iron ore reserves. The plant
-              runs its own sintering, ironmaking, steelmaking, casting, rolling, and
-              finishing operations on one site, producing alloy steel grades for the
-              automotive, engineering, bearing, defence, and windmill sectors under
-              strict quality control, with a continued focus on energy efficiency,
-              emissions reduction, and responsible waste management.
+              SLR Metaliks operates from Hosapete, Karnataka — a major Indian
+              steel production hub, sited close to abundant iron ore reserves.
+              The plant runs its own sintering, ironmaking, steelmaking,
+              casting, rolling, and finishing operations on one site,
+              producing alloy steel grades for the automotive, engineering,
+              bearing, defence, and windmill sectors under strict quality
+              control, with a continued focus on energy efficiency, emissions
+              reduction, and responsible waste management.
             </p>
-          </div>
-          <div className="slr-plant-hero-stats">
-            <div className="slr-plant-stat"><span className="lbl">Infrastructure Units</span><span className="num">{FACILITY_COUNT}</span></div>
-            <div className="slr-plant-stat"><span className="lbl">Process Stages</span><span className="num">{STAGES.length}</span></div>
-            <div className="slr-plant-stat"><span className="lbl">Location</span><span className="num">Hosapete, KA</span></div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            className="slr-plant-hero-stats"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            {[
+              ['Infrastructure Units', FACILITY_COUNT],
+              ['Process Stages', STAGES.length],
+              ['Location', 'Hosapete, KA'],
+            ].map(([label, value], index) => (
+              <motion.div
+                className="slr-plant-stat"
+                key={label}
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.55 + index * 0.12,
+                }}
+                whileHover={{
+                  x: -6,
+                  borderColor: 'rgba(214,165,110,0.6)',
+                  backgroundColor: 'rgba(255,255,255,0.08)',
+                }}
+              >
+                <span className="lbl">{label}</span>
+                <span className="num">{value}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
@@ -611,28 +691,94 @@ function StageNav({ activeStage, onNavClick }) {
 
 /* ---------- stage section ---------- */
 
-function StageSection({ stage, index, openMap, onToggle, onOpenLightbox }) {
+function StageSection({
+  stage,
+  index,
+  openMap,
+  onToggle,
+  onOpenLightbox,
+}) {
   return (
-    <section id={stage.id} className="slr-plant-stage">
+    <motion.section
+      id={stage.id}
+      className="slr-plant-stage"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: 0.12,
+          },
+        },
+      }}
+    >
       <div className="slr-container">
-        <div className="slr-plant-stage-head">
-          <span className="slr-plant-stage-index">STAGE {String(index + 1).padStart(2, '0')} / {STAGES.length}</span>
+        <motion.div
+          className="slr-plant-stage-head"
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              },
+            },
+          }}
+        >
+          <span className="slr-plant-stage-index">
+            STAGE {String(index + 1).padStart(2, '0')} / {STAGES.length}
+          </span>
+
           <h2>{stage.label}</h2>
           <p>{stage.intro}</p>
-        </div>
-        <div className="slr-plant-list">
+        </motion.div>
+
+        <motion.div
+          className="slr-plant-list"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
           {stage.facilities.map((f) => (
-            <FacilityItem
+            <motion.div
               key={f.slug}
-              facility={f}
-              isOpen={!!openMap[f.slug]}
-              onToggle={() => onToggle(f.slug)}
-              onOpenLightbox={(imgIndex) => onOpenLightbox(f, imgIndex)}
-            />
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 35,
+                },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.55,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                },
+              }}
+            >
+              <FacilityItem
+                facility={f}
+                isOpen={!!openMap[f.slug]}
+                onToggle={() => onToggle(f.slug)}
+                onOpenLightbox={(imgIndex) =>
+                  onOpenLightbox(f, imgIndex)
+                }
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -710,22 +856,149 @@ export default function PlantPage() {
 
       <PlantCta />
 
-      {lightbox && (
-        <div className="slr-lightbox" role="dialog" aria-modal="true" onClick={closeLightbox}>
-          <button className="slr-lightbox-close" onClick={closeLightbox} aria-label="Close">&times;</button>
-          <button className="slr-lightbox-nav prev" aria-label="Previous image" onClick={(e) => { e.stopPropagation(); stepLightbox(-1); }}>&larr;</button>
+      <AnimatePresence>
+  {lightbox && (
+    <motion.div
+      className="slr-lightbox"
+      role="dialog"
+      aria-modal="true"
+      onClick={closeLightbox}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+    >
+      {/* Close button */}
+      <motion.button
+        className="slr-lightbox-close"
+        onClick={closeLightbox}
+        aria-label="Close"
+        initial={{ opacity: 0, scale: 0.7, rotate: -90 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        exit={{ opacity: 0, scale: 0.7, rotate: 90 }}
+        transition={{
+          duration: 0.35,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover={{
+          scale: 1.1,
+          backgroundColor: 'rgba(255,255,255,0.2)',
+        }}
+        whileTap={{ scale: 0.9 }}
+      >
+        &times;
+      </motion.button>
+
+      {/* Previous button */}
+      <motion.button
+        className="slr-lightbox-nav prev"
+        aria-label="Previous image"
+        onClick={(e) => {
+          e.stopPropagation();
+          stepLightbox(-1);
+        }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -30 }}
+        transition={{
+          duration: 0.35,
+          delay: 0.15,
+        }}
+        whileHover={{
+          scale: 1.12,
+          x: -4,
+          backgroundColor: 'rgba(255,255,255,0.2)',
+        }}
+        whileTap={{ scale: 0.9 }}
+      >
+        &larr;
+      </motion.button>
+
+      {/* Animated image */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`${lightbox.facility.slug}-${lightbox.imgIndex}`}
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            scale: 0.85,
+            y: -20,
+          }}
+          transition={{
+            duration: 0.4,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
           <ImageThumb
             src={lightbox.facility.images[lightbox.imgIndex]}
-            alt={`${lightbox.facility.name} — photo ${lightbox.imgIndex + 1}`}
+            alt={`${lightbox.facility.name} — photo ${
+              lightbox.imgIndex + 1
+            }`}
             initial={lightbox.facility.name[0]}
-            onClick={(e) => e.stopPropagation()}
+            className="slr-lightbox-image"
           />
-          <button className="slr-lightbox-nav next" aria-label="Next image" onClick={(e) => { e.stopPropagation(); stepLightbox(1); }}>&rarr;</button>
-          <div className="slr-lightbox-caption">
-            {lightbox.facility.name} &mdash; {lightbox.imgIndex + 1} / {lightbox.facility.images.length}
-          </div>
-        </div>
-      )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Next button */}
+      <motion.button
+        className="slr-lightbox-nav next"
+        aria-label="Next image"
+        onClick={(e) => {
+          e.stopPropagation();
+          stepLightbox(1);
+        }}
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 30 }}
+        transition={{
+          duration: 0.35,
+          delay: 0.15,
+        }}
+        whileHover={{
+          scale: 1.12,
+          x: 4,
+          backgroundColor: 'rgba(255,255,255,0.2)',
+        }}
+        whileTap={{ scale: 0.9 }}
+      >
+        &rarr;
+      </motion.button>
+
+      {/* Caption */}
+      <motion.div
+        className="slr-lightbox-caption"
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.35,
+          delay: 0.2,
+        }}
+      >
+        {lightbox.facility.name} &mdash;{' '}
+        {lightbox.imgIndex + 1} / {lightbox.facility.images.length}
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </div>
   );
 }

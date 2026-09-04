@@ -155,7 +155,106 @@
   color: var(--maroon); background: var(--cream); border-radius: 999px; padding: 3px 10px;
 }
 .slr-auto-tech-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--signal); }
-.slr-auto-chevron { font-size: 13px; color: var(--text-gray-light); transition: transform 0.3s ease; }
+/* ============================================
+   AUTOMATION ACCORDION — OPEN / CLICK HINT
+   ============================================ */
+
+.slr-auto-chevron {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(126, 31, 43, 0.22);
+
+  background: rgba(126, 31, 43, 0.07);
+  color: var(--maroon);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Closed accordion — subtle movement tells the user it is clickable */
+.slr-auto-card:not(.is-open) .slr-auto-chevron {
+  animation: slrAutoArrowHint 1.8s ease-in-out infinite;
+}
+
+@keyframes slrAutoArrowHint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Hover — make the action obvious */
+.slr-auto-trigger:hover .slr-auto-chevron {
+  animation: none;
+  background: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+  box-shadow: 0 6px 16px rgba(126, 31, 43, 0.28);
+
+  transform: translateY(2px);
+}
+
+/* Open state */
+.slr-auto-card.is-open .slr-auto-chevron {
+  animation: none;
+  transform: rotate(180deg);
+
+  background: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+
+  box-shadow: 0 6px 16px rgba(126, 31, 43, 0.28);
+}
+
+/* Hover while already open */
+.slr-auto-card.is-open .slr-auto-trigger:hover .slr-auto-chevron {
+  transform: rotate(180deg) translateY(-2px);
+  background: var(--maroon-dark);
+}
+
+/* Keyboard accessibility */
+.slr-auto-trigger:focus-visible {
+  outline: 3px solid rgba(189, 129, 72, 0.45);
+  outline-offset: 3px;
+}
+
+.slr-auto-trigger:focus-visible .slr-auto-chevron {
+  background: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .slr-auto-card:not(.is-open) .slr-auto-chevron {
+    animation: none;
+  }
+
+  .slr-auto-chevron {
+    transition: none;
+  }
+}
+
 .slr-auto-card.is-open .slr-auto-chevron { transform: rotate(180deg); color: var(--maroon); }
 
 .slr-auto-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
@@ -247,4 +346,494 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slr-auto-panel, .slr-auto-chevron { transition: none; }
+}
+
+/* ============================================
+   AUTOMATION PAGE MOTION
+   ============================================ */
+
+/* ---------- PAGE REVEAL ---------- */
+
+.slr-auto-reveal {
+  animation: slrAutoFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slrAutoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------- HERO ANIMATION ---------- */
+
+.slr-auto-hero-grid > div:first-child {
+  animation: slrAutoHeroText 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slr-auto-hero-schematic {
+  animation:
+    slrAutoHeroDiagram 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both,
+    slrAutoGlow 3s ease-in-out 1.2s infinite;
+}
+
+@keyframes slrAutoHeroText {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slrAutoHeroDiagram {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slrAutoGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(63, 167, 150, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(63, 167, 150, 0.12);
+  }
+}
+
+
+/* ---------- HERO GRID MOVEMENT ---------- */
+
+.slr-auto-hero-grid-bg {
+  animation: slrAutoGridMove 18s linear infinite;
+}
+
+@keyframes slrAutoGridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 46px 46px;
+  }
+}
+
+
+/* ---------- HERO CHIPS ---------- */
+
+.slr-auto-chip {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.slr-auto-chip:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 165, 110, 0.55);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ---------- CONTROL NODE ---------- */
+
+/*
+  The SVG itself gets a subtle live-system effect.
+  The lines pulse while the nodes remain readable.
+*/
+
+.slr-auto-hero-schematic svg line,
+.slr-auto-schematic-wrap svg line {
+  animation: slrSignalPulse 2.2s ease-in-out infinite;
+}
+
+.slr-auto-hero-schematic svg circle,
+.slr-auto-schematic-wrap svg circle {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+@keyframes slrSignalPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* ---------- SYSTEM CARDS ---------- */
+
+.slr-auto-card {
+  transform: translateY(0);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.35s ease;
+}
+
+.slr-auto-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(189, 129, 72, 0.65);
+  box-shadow: 0 12px 28px rgba(23, 19, 15, 0.08);
+}
+
+.slr-auto-card.is-open {
+  transform: translateY(0);
+}
+
+
+/* ---------- TRIGGER ---------- */
+
+.slr-auto-trigger {
+  transition:
+    background 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.slr-auto-trigger:hover {
+  background: rgba(246, 241, 234, 0.45);
+}
+
+.slr-auto-trigger:hover .slr-auto-node-mini {
+  transform: scale(1.04);
+}
+
+.slr-auto-node-mini {
+  transition: transform 0.3s ease;
+}
+
+
+/* ---------- CHEVRON ---------- */
+
+.slr-auto-chevron {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease;
+}
+
+.slr-auto-card.is-open .slr-auto-chevron {
+  transform: rotate(180deg);
+}
+
+
+/* ---------- PANEL CONTENT ---------- */
+
+.slr-auto-panel {
+  transition:
+    max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slr-auto-panel-inner {
+  animation: slrPanelContent 0.45s ease both;
+}
+
+@keyframes slrPanelContent {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------- FACT CARDS ---------- */
+
+.slr-auto-fact {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.slr-auto-fact:hover {
+  transform: translateY(-3px);
+  background: #eee6dc;
+  box-shadow: 0 7px 18px rgba(23, 19, 15, 0.06);
+}
+
+
+/* ---------- MONITOR ITEMS ---------- */
+
+.slr-auto-monitors li {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.slr-auto-monitors li:hover {
+  transform: translateX(5px);
+  color: var(--maroon);
+}
+
+.slr-auto-monitors li::before {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.slr-auto-monitors li:hover::before {
+  transform: scale(1.5);
+  box-shadow: 0 0 8px rgba(189, 129, 72, 0.45);
+}
+
+
+/* ---------- GALLERY ---------- */
+
+.slr-auto-gallery-img,
+.slr-auto-gallery .slr-auto-img-fallback {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.slr-auto-gallery-img:hover,
+.slr-auto-gallery .slr-auto-img-fallback:hover {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 24px rgba(23, 19, 15, 0.14);
+}
+
+
+/* ---------- LIGHTBOX ---------- */
+
+.slr-lightbox {
+  animation: slrLightboxIn 0.3s ease both;
+  backdrop-filter: blur(5px);
+}
+
+.slr-lightbox img,
+.slr-lightbox .slr-auto-img-fallback {
+  animation: slrLightboxImageIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slrLightboxIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slrLightboxImageIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ---------- LIGHTBOX BUTTONS ---------- */
+
+.slr-lightbox-close,
+.slr-lightbox-nav {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.slr-lightbox-close:hover,
+.slr-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.slr-lightbox-close:hover {
+  transform: rotate(90deg);
+}
+
+.slr-lightbox-nav.prev:hover {
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.slr-lightbox-nav.next:hover {
+  transform: translateY(-50%) translateX(4px);
+}
+
+
+/* ---------- DIVISION NAV ---------- */
+
+.slr-auto-nav {
+  animation: slrNavIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+@keyframes slrNavIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.slr-auto-nav-btn {
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.slr-auto-nav-btn:hover {
+  transform: translateX(-3px);
+}
+
+.slr-auto-nav-btn.is-active {
+  box-shadow: 0 5px 14px rgba(126, 31, 43, 0.2);
+}
+
+
+/* ---------- SUBSYSTEMS ---------- */
+
+.slr-auto-sub {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.slr-auto-sub:hover {
+  transform: translateX(4px);
+  box-shadow: 0 5px 15px rgba(23, 19, 15, 0.06);
+}
+
+
+/* ---------- CTA ---------- */
+
+.slr-auto-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.slr-auto-cta::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: -250px;
+  top: -250px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  animation: slrCtaOrb 8s ease-in-out infinite;
+}
+
+.slr-auto-cta::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -180px;
+  bottom: -180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  animation: slrCtaOrb 10s ease-in-out infinite reverse;
+}
+
+.slr-auto-cta > .slr-container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes slrCtaOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, 20px) scale(1.1);
+  }
+}
+
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .slr-auto-reveal,
+  .slr-auto-hero-grid > div:first-child,
+  .slr-auto-hero-schematic,
+  .slr-auto-hero-grid-bg,
+  .slr-auto-nav,
+  .slr-auto-panel-inner,
+  .slr-lightbox,
+  .slr-lightbox img,
+  .slr-lightbox .slr-auto-img-fallback,
+  .slr-auto-cta::before,
+  .slr-auto-cta::after,
+  .slr-auto-hero-schematic svg line,
+  .slr-auto-schematic-wrap svg line {
+    animation: none !important;
+  }
+
+  .slr-auto-card,
+  .slr-auto-trigger,
+  .slr-auto-node-mini,
+  .slr-auto-fact,
+  .slr-auto-gallery-img,
+  .slr-auto-gallery .slr-auto-img-fallback,
+  .slr-lightbox-close,
+  .slr-lightbox-nav,
+  .slr-auto-nav-btn,
+  .slr-auto-sub {
+    transition: none !important;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 640px) {
+  .slr-auto-hero-schematic {
+    animation: slrAutoHeroDiagram 0.8s ease both;
+  }
+
+  .slr-auto-card:hover {
+    transform: none;
+  }
+
+  .slr-auto-nav-btn:hover {
+    transform: none;
+  }
+
+  .slr-auto-gallery-img:hover,
+  .slr-auto-gallery .slr-auto-img-fallback:hover {
+    transform: scale(1.02);
+  }
 }

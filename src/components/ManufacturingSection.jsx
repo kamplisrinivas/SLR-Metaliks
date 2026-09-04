@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import "./ManufacturingSection.css";
 import manufacturingBg from "../images/manufacturing-bg.jpg";
 
@@ -12,110 +13,238 @@ import {
   Package,
 } from "lucide-react";
 
-
 const process = [
   {
     title: "Raw Materials",
-    icon: <Package size={28} />
+    icon: Package,
   },
   {
     title: "Blast Furnace",
-    icon: <Flame size={28} />
+    icon: Flame,
   },
   {
     title: "Steel Melting",
-    icon: <Factory size={28} />
+    icon: Factory,
   },
   {
     title: "Casting",
-    icon: <Box size={28} />
+    icon: Box,
   },
   {
     title: "Rolling",
-    icon: <Cog size={28} />
+    icon: Cog,
   },
   {
     title: "Heat Treatment",
-    icon: <Hammer size={28} />
+    icon: Hammer,
   },
   {
     title: "Quality Testing",
-    icon: <ShieldCheck size={28} />
+    icon: ShieldCheck,
   },
   {
     title: "Dispatch",
-    icon: <Truck size={28} />
+    icon: Truck,
   },
 ];
 
-
 export default function ManufacturingSection() {
+  const sectionRef = useRef(null);
+
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.18,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-
     <section
-      className="manufacturing"
+      ref={sectionRef}
+      className={`manufacturing ${
+        visible ? "is-visible" : ""
+      }`}
       style={{
         backgroundImage: `url(${manufacturingBg})`,
       }}
     >
 
-      <div className="manufacturing-overlay"></div>
+      {/* Background */}
+      <div className="manufacturing-bg" />
+
+      <div className="manufacturing-overlay" />
+
 
       <div className="manufacturing-content">
 
+        {/* =================================
+            HEADER
+        ================================= */}
+
         <div className="section-header">
 
-  <p>
-    MANUFACTURING EXCELLENCE
-  </p>
+          <div className="manufacturing-tag">
 
-  <span className="manufacturing-title">
-    Our Manufacturing Process
-  </span>
+            <span className="tag-line" />
 
-  <p>
-    From premium raw materials to precision-engineered
-    steel products, every stage follows rigorous quality,
-    safety and sustainability standards.
-  </p>
+            <span>
+              MANUFACTURING EXCELLENCE
+            </span>
 
-</div>
+          </div>
 
+          <h2>
+            Our Manufacturing
+            <em> Process</em>
+          </h2>
 
-        <div className="process-flow">
+          <p>
+            From premium raw materials to
+            precision-engineered steel products,
+            every stage follows rigorous quality,
+            safety and sustainability standards.
+          </p>
 
-          {process.map((item, index) => (
-
-            <div
-              className="process-item"
-              key={index}
-            >
-
-              <div className="icon-circle">
-                {item.icon}
-              </div>
+        </div>
 
 
-              <div className="step-number">
-                {String(index + 1).padStart(2, "0")}
-              </div>
+        {/* =================================
+            PROCESS
+        ================================= */}
+
+        <div className="process-wrapper">
+
+          <div className="process-line">
+
+            <div className="process-progress" />
+
+          </div>
 
 
-              <h3>
-                {item.title}
-              </h3>
+          <div className="process-flow">
+
+            {process.map((item, index) => {
+
+              const Icon = item.icon;
+
+              return (
+                <div
+                  className="process-item"
+                  key={item.title}
+                  style={{
+                    "--step-delay": `${index * 120}ms`,
+                  }}
+                >
+
+                  {/* Number */}
+
+                  <span className="step-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
 
-            </div>
+                  {/* Icon */}
 
-          ))}
+                  <div className="icon-wrapper">
+
+                    <div className="icon-circle">
+
+                      <Icon
+                        size={26}
+                        strokeWidth={1.8}
+                      />
+
+                    </div>
+
+                    <span className="icon-pulse" />
+
+                  </div>
+
+
+                  {/* Content */}
+
+                  <div className="process-info">
+
+                    <h3>
+                      {item.title}
+                    </h3>
+
+                    <span>
+                      STEP {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                  </div>
+
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
+
+
+        {/* =================================
+            BOTTOM STATUS
+        ================================= */}
+
+        <div className="manufacturing-status">
+
+          <div className="status-item">
+
+            <span className="status-dot" />
+
+            <span>
+              QUALITY CONTROL
+            </span>
+
+          </div>
+
+          <div className="status-divider" />
+
+          <div className="status-item">
+
+            <span className="status-dot gold" />
+
+            <span>
+              ADVANCED TECHNOLOGY
+            </span>
+
+          </div>
+
+          <div className="status-divider" />
+
+          <div className="status-item">
+
+            <span className="status-dot" />
+
+            <span>
+              SUSTAINABLE PRODUCTION
+            </span>
+
+          </div>
 
         </div>
 
       </div>
 
     </section>
-
   );
 }

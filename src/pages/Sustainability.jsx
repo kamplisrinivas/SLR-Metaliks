@@ -512,6 +512,90 @@ function PillarNav({ activePillar, onNavClick }) {
   );
 }
 
+
+function AutomationDashboard() {
+  const metrics = [
+    {
+      value: '24/7',
+      label: 'Digital Monitoring',
+      detail: 'Continuous operational visibility',
+    },
+    {
+      value: '7',
+      label: 'CEMS Connections',
+      detail: 'Continuous emissions monitoring',
+    },
+    {
+      value: '1',
+      label: 'AAQM Station',
+      detail: 'Ambient air quality monitoring',
+    },
+    {
+      value: '100%',
+      label: 'Digital Compliance',
+      detail: 'Centralised legal tracking',
+    },
+  ];
+
+  return (
+    <div className="slr-auto-dashboard">
+      <div className="slr-auto-dashboard-head">
+        <div>
+          <span className="slr-auto-kicker">SMART OPERATIONS</span>
+          <h3>Automation at the Core of Sustainable Operations</h3>
+        </div>
+
+        <div className="slr-auto-status">
+          <span className="slr-auto-status-dot" />
+          SYSTEMS CONNECTED
+        </div>
+      </div>
+
+      <div className="slr-auto-metrics">
+        {metrics.map((metric) => (
+          <div className="slr-auto-metric" key={metric.label}>
+            <div className="slr-auto-metric-value">{metric.value}</div>
+            <div className="slr-auto-metric-label">{metric.label}</div>
+            <div className="slr-auto-metric-detail">{metric.detail}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="slr-auto-flow">
+        <div className="slr-auto-flow-node">
+          <span>01</span>
+          <strong>Sensors</strong>
+          <small>Plant &amp; environment</small>
+        </div>
+
+        <div className="slr-auto-flow-line" />
+
+        <div className="slr-auto-flow-node">
+          <span>02</span>
+          <strong>Digital Systems</strong>
+          <small>Data collection</small>
+        </div>
+
+        <div className="slr-auto-flow-line" />
+
+        <div className="slr-auto-flow-node">
+          <span>03</span>
+          <strong>Analytics</strong>
+          <small>Performance insights</small>
+        </div>
+
+        <div className="slr-auto-flow-line" />
+
+        <div className="slr-auto-flow-node">
+          <span>04</span>
+          <strong>Action</strong>
+          <small>Continuous improvement</small>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PillarSection({ pillar, index, openMap, onToggle, onOpenLightbox }) {
   return (
     <section id={pillar.id} className="slr-sus-pillar">
@@ -532,6 +616,11 @@ function PillarSection({ pillar, index, openMap, onToggle, onOpenLightbox }) {
             </div>
           </>
         )}
+
+        {pillar.id === 'automation' && (
+  <AutomationDashboard />
+)}
+
 
         <div className="slr-sus-list">
           {pillar.subsections.map((s) => (

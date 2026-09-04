@@ -1,113 +1,552 @@
+/* =========================================
+   PREMIUM STATS SECTION
+========================================= */
+
 .stats {
-  background: linear-gradient(135deg, #f8f9fc, #eef2f7);
-  padding: 50px 20px;
+    position: relative;
+
+    padding: 70px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f9fc 0%,
+            #eef1f5 50%,
+            #f7f8fa 100%
+        );
+
+    overflow: hidden;
 }
+
+
+/* =========================================
+   BACKGROUND LIGHT
+========================================= */
+
+.stats::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -250px;
+    top: -300px;
+
+    border-radius: 50%;
+
+    background: #750714;
+
+    filter: blur(160px);
+
+    opacity: .045;
+
+    pointer-events: none;
+}
+
+.stats::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -200px;
+    bottom: -280px;
+
+    border-radius: 50%;
+
+    background: #d8b36b;
+
+    filter: blur(150px);
+
+    opacity: .06;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.stats-heading {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    z-index: 2;
+}
+
+.stats-heading p {
+    margin: 0;
+
+    color: #750714;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.stats-line {
+    width: 35px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(117,7,20,.4)
+        );
+}
+
+.stats-line:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(117,7,20,.4),
+            transparent
+        );
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
 
 .stats-container {
-  max-width: 1320px;
-  margin: 0 auto;
+    position: relative;
 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+    z-index: 2;
+
+    max-width: 1320px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
 }
+
+
+/* =========================================
+   CARD
+========================================= */
 
 .stat-card {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 30px 18px;
+    position: relative;
 
-  background: rgb(151, 150, 150);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+    min-height: 190px;
 
-  border: 1px solid rgba(150, 147, 147, 0.75);
-  border-radius: 22px;
+    display: flex;
 
-  /* Strong shadow in normal state */
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.12),
-    0 18px 40px rgba(0, 0, 0, 0.18),
-    0 4px 10px rgba(117, 7, 20, 0.10);
+    align-items: center;
 
-  transition: all 0.35s ease;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.95),
+            rgba(239,242,246,.88)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.07),
+        0 20px 45px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    animation:
+        statReveal .8s
+        var(--delay)
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+    transition:
+        transform .45s cubic-bezier(.16,1,.3,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
 }
 
-/* Shine Effect */
+@keyframes statReveal {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   TOP ACCENT
+========================================= */
+
+.stat-accent {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #750714,
+            #b2172c,
+            #d8b36b
+        );
+
+    box-shadow:
+        0 0 15px rgba(178,23,44,.25);
+
+    transition:
+        width .45s ease;
+}
+
+.stat-card:hover .stat-accent {
+    width: 70%;
+}
+
+
+/* =========================================
+   BACKGROUND NUMBER
+========================================= */
+
+.stat-bg-number {
+    position: absolute;
+
+    right: 18px;
+    top: 8px;
+
+    color: rgba(117,7,20,.035);
+
+    font-size: 75px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.stat-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.stat-card h2 {
+    margin: 0 0 8px;
+
+    color: #750714;
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    font-weight: 850;
+
+    letter-spacing: -1.5px;
+
+    text-shadow:
+        0 3px 15px rgba(117,7,20,.08);
+
+    transition:
+        transform .4s ease,
+        color .4s ease;
+}
+
+.stat-card h2 span {
+    color: #b2172c;
+
+    font-size: .72em;
+
+    margin-left: 2px;
+}
+
+.stat-card:hover h2 {
+    transform:
+        translateY(-3px);
+
+    color: #8e0d20;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.stat-card p {
+    margin: 0;
+
+    color: #5c6066;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .2px;
+}
+
+
+/* =========================================
+   PROGRESS LINE
+========================================= */
+
+.stat-progress {
+    width: 55px;
+
+    height: 2px;
+
+    margin: 18px auto 0;
+
+    background:
+        rgba(117,7,20,.10);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.stat-progress span {
+    display: block;
+
+    width: 30%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #750714,
+            #d8b36b
+        );
+
+    animation:
+        statProgress 2.5s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes statProgress {
+
+    from {
+        width: 20%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   SHINE
+========================================= */
+
 .stat-card::before {
-  content: "";
-  position: absolute;
-  top: -80%;
-  left: -120%;
-  width: 80%;
-  height: 250%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.45),
-    transparent
-  );
-  transform: rotate(25deg);
-  transition: 0.7s;
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -130%;
+
+    width: 80%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255,255,255,.7) 50%,
+            transparent 65%
+        );
+
+    transform: rotate(20deg);
+
+    transition:
+        left .8s ease;
+
+    pointer-events: none;
 }
 
 .stat-card:hover::before {
-  left: 160%;
+    left: 150%;
 }
+
+
+/* =========================================
+   HOVER
+========================================= */
 
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 18px 40px rgba(117, 7, 20, 0.18),
-    inset 0 1px 1px rgba(255,255,255,0.6);
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(178,23,44,.18);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.10),
+        0 30px 65px rgba(117,7,20,.10),
+        inset 0 1px 0 rgba(255,255,255,1);
 }
 
-.stat-card h2 {
-  color: #750714;
-  font-size: 42px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
 
+/* =========================================
+   TABLET
+========================================= */
 
-.stat-card p {
-  color: #555;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* Tablet */
 @media (max-width: 992px) {
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .stat-card h2 {
-    font-size: 38px;
-  }
+    .stats {
+        padding: 60px 20px;
+    }
+
+    .stats-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .stat-card {
+        min-height: 180px;
+    }
+
+    .stat-card h2 {
+        font-size: 40px;
+    }
+
 }
 
-/* Mobile */
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 576px) {
-  .stats {
-    padding: 50px 15px;
-  }
 
-  .stats-container {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
+    .stats {
+        padding: 50px 15px;
+    }
 
-  .stat-card {
-    padding: 35px 20px;
-  }
+    .stats-heading {
+        margin-bottom: 22px;
+    }
 
-  .stat-card h2 {
-    font-size: 34px;
-  }
+    .stats-container {
 
-  .stat-card p {
-    font-size: 14px;
-  }
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .stat-card {
+
+        min-height: 165px;
+
+        padding: 30px 20px;
+    }
+
+    .stat-card h2 {
+        font-size: 38px;
+    }
+
+    .stat-card p {
+        font-size: 13px;
+    }
+
+    .stat-bg-number {
+        font-size: 65px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .stat-card {
+
+        animation: none;
+
+        opacity: 1;
+
+        transform: none;
+    }
+
+    .stat-card::before,
+    .stat-progress span {
+
+        animation: none;
+    }
+
+    .stat-card:hover {
+
+        transform: none;
+    }
+
 }

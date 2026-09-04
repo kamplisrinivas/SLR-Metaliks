@@ -178,7 +178,55 @@
 .slr-plant-trigger-text { flex: 1; min-width: 0; }
 .slr-plant-trigger-text h3 { font-size: 29.5px; color: var(--ink); margin-bottom: 3px; }
 .slr-plant-headline { font-size: 12.5px; color: var(--maroon); font-weight: 600; }
-.slr-plant-chevron { flex: 0 0 auto; font-size: 13px; color: var(--text-gray-light); transition: transform 0.3s ease; }
+/* ---------- ACCORDION CHEVRON ---------- */
+
+.slr-plant-chevron {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--maroon);
+  background: rgba(126, 31, 43, 0.08);
+  border: 1px solid rgba(126, 31, 43, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* User hovers over an accordion */
+.slr-plant-trigger:hover .slr-plant-chevron {
+  background: var(--maroon);
+  color: var(--white);
+  transform: translateY(2px);
+  box-shadow: 0 5px 14px rgba(126, 31, 43, 0.25);
+}
+
+/* Open accordion */
+.slr-plant-item.is-open .slr-plant-chevron {
+  transform: rotate(180deg);
+  background: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+  box-shadow: 0 6px 16px rgba(126, 31, 43, 0.25);
+}
+
+/* Keep hover nice when already open */
+.slr-plant-item.is-open .slr-plant-trigger:hover .slr-plant-chevron {
+  transform: rotate(180deg) translateY(-2px);
+  background: var(--maroon-dark);
+}
+
 .slr-plant-item.is-open .slr-plant-chevron { transform: rotate(180deg); color: var(--maroon); }
 
 .slr-plant-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
@@ -290,4 +338,65 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slr-plant-panel, .slr-plant-chevron { transition: none; }
+}
+
+/* ---------- FRAMER MOTION POLISH ---------- */
+
+.slr-plant-item {
+  will-change: transform, box-shadow;
+}
+
+.slr-plant-trigger {
+  transform-origin: center;
+}
+
+.slr-plant-thumb {
+  will-change: transform;
+}
+
+.slr-plant-gallery-img {
+  display: block;
+  will-change: transform;
+}
+
+.slr-plant-stat {
+  will-change: transform, background-color;
+}
+
+.slr-plant-stage-head h2 {
+  position: relative;
+}
+
+.slr-plant-stage-head h2::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  margin-top: 10px;
+  background: var(--copper);
+  transition: width 0.6s ease;
+}
+
+.slr-plant-stage:hover .slr-plant-stage-head h2::after {
+  width: 55px;
+}
+
+/* Lightbox smoother image rendering */
+.slr-lightbox img,
+.slr-lightbox .slr-plant-img-fallback {
+  display: block;
+  object-fit: contain;
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .slr-plant-stage-head h2::after {
+    transition: none;
+  }
+
+  .slr-plant-item,
+  .slr-plant-gallery-img,
+  .slr-plant-stat {
+    will-change: auto;
+  }
 }

@@ -514,7 +514,7 @@ export default function Navbar() {
             to="/contact"
             onClick={closeMenu}
           >
-            Contact
+            Contact Us
           </Link>
 
         </nav>

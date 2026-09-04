@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
+
 import './Aboutpage.css';
 import './Products.css';
 
@@ -120,6 +122,37 @@ function ProductsHero() {
   );
 }
 
+function useScrollReveal() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      '.slr-prod-head, .slr-steel-card, .slr-size-card, .slr-grade-card'
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slr-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    elements.forEach((element) => {
+      element.classList.add('slr-reveal');
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+}
+
+
 function SteelTypes() {
   return (
     <section className="slr-section">
@@ -209,6 +242,8 @@ function ProductsCta() {
 }
 
 export default function ProductsPage() {
+  useScrollReveal();
+
   return (
     <div className="slr-about">
       <ProductsHero />

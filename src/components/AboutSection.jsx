@@ -1,47 +1,129 @@
 import "./AboutSection.css";
 import aboutImage from "../images/_MG_0532.jpg";
-import wireImage from "../images/wire.jpg"; // Adjust the path if needed
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import wireImage from "../images/wire.jpg";
+import { useEffect, useRef, useState } from "react";
 
-const AnimatedCounter = ({ target, suffix = "" }) => {
+const stats = [
+  {
+    target: 4,
+    suffix: "+",
+    label: "Expansion Projects",
+  },
+  {
+    target: 16,
+    suffix: "+",
+    label: "Running Projects",
+  },
+  {
+    target: 415,
+    suffix: "+",
+    label: "Happy Clients",
+  },
+  {
+    target: 13,
+    suffix: "+",
+    label: "Awards",
+  },
+];
+
+function AnimatedCounter({ target, suffix = "", active }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
-    const duration = 3000; // 3 seconds
-    const incrementTime = 20;
-    const increment = target / (duration / incrementTime);
+    if (!active) return;
 
-    const timer = setInterval(() => {
-      start += increment;
+    let startTime = null;
+    let animationFrame;
 
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
+    const duration = 2000;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      // Smooth premium ease-out
+      const eased =
+        1 - Math.pow(1 - progress, 4);
+
+      setCount(Math.floor(target * eased));
+
+      if (progress < 1) {
+        animationFrame =
+          requestAnimationFrame(animate);
       } else {
-        setCount(Math.floor(start));
+        setCount(target);
       }
-    }, incrementTime);
+    };
 
-    return () => clearInterval(timer);
-  }, [target]);
+    animationFrame =
+      requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [active, target]);
 
   return (
     <h3>
       {count}
-      {suffix}
+      <span>{suffix}</span>
     </h3>
   );
-};
-
+}
 
 export default function AboutSection() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="about">
+    <section
+      className={`about ${visible ? "is-visible" : ""}`}
+      ref={sectionRef}
+    >
+
       <div className="about-container">
+
+        {/* =================================
+            LEFT CONTENT
+        ================================= */}
+
         <div className="about-content">
-          <span className="section-tag">ABOUT SLR METALIKS</span>
+
+          <div className="about-heading">
+            <span className="section-line" />
+
+            <span className="section-tag">
+              ABOUT SLR METALIKS
+            </span>
+          </div>
 
           <h2>
             Building India's Future Through
@@ -49,66 +131,121 @@ export default function AboutSection() {
           </h2>
 
           <p>
-            SLR Metaliks Limited is one of India's leading integrated
-            steel manufacturers, delivering premium-quality steel
-            solutions for infrastructure, automotive, engineering,
+            SLR Metaliks Limited is one of India's leading
+            integrated steel manufacturers, delivering
+            premium-quality steel solutions for
+            infrastructure, automotive, engineering,
             power, railways and construction sectors.
           </p>
 
           <p>
-            Backed by advanced technology, sustainable manufacturing
-            practices and a customer-first approach, we continue to
-            strengthen industries while creating long-term value for
-            stakeholders.
+            Backed by advanced technology, sustainable
+            manufacturing practices and a customer-first
+            approach, we continue to strengthen industries
+            while creating long-term value for stakeholders.
           </p>
 
+          {/* =================================
+              STATS
+          ================================= */}
+
           <div className="about-stats">
-  <div className="stat">
-    <AnimatedCounter target={4} suffix="+" />
-    <span>Expansion Projects</span>
-  </div>
 
-  <div className="stat">
-    <AnimatedCounter target={16} suffix="+" />
-    <span>Running Projects</span>
-  </div>
+            {stats.map((item, index) => (
+              <div
+                className="about-stat"
+                key={item.label}
+                style={{
+                  "--stat-delay": `${index * 100}ms`,
+                }}
+              >
+                <AnimatedCounter
+                  target={item.target}
+                  suffix={item.suffix}
+                  active={visible}
+                />
 
-  <div className="stat">
-    <AnimatedCounter target={415} suffix="+" />
-    <span>Happy Clients</span>
-  </div>
+                <span>{item.label}</span>
+              </div>
+            ))}
 
-  <div className="stat">
-    <AnimatedCounter target={13} suffix="+" />
-    <span>Awards</span>
-  </div>
-</div>
+          </div>
 
+          {/* =================================
+              CTA
+          ================================= */}
 
+          <a
+            href="/about"
+            className="about-btn"
+          >
+            <span>Explore Company</span>
 
+            <span className="about-btn-arrow">
+              ↗
+            </span>
+          </a>
 
-          <button 
-  className="btn-primary"
-  onClick={() => window.location.href = "/about"}
->
-  Explore Company
-</button>
         </div>
 
-        <div className="about-image">
-  <img
-    className="main-image"
-    src={aboutImage}
-    alt="SLR Metaliks Plant"
-  />
 
-  <img
-    className="floating-image"
-    src={wireImage}
-    alt="Steel Wire"
-  />
-</div>
+        {/* =================================
+            RIGHT IMAGE
+        ================================= */}
+
+        <div className="about-image">
+
+          <div className="image-frame">
+
+            <img
+              className="main-image"
+              src={aboutImage}
+              alt="SLR Metaliks Steel Plant"
+            />
+
+            <div className="image-overlay" />
+
+            <div className="image-corner image-corner-one" />
+            <div className="image-corner image-corner-two" />
+
+          </div>
+
+
+          {/* Floating Image */}
+
+          <div className="floating-image-wrapper">
+
+            <img
+              className="floating-image"
+              src={wireImage}
+              alt="Steel Wire Product"
+            />
+
+            <div className="floating-label">
+              <span className="floating-dot" />
+              PRECISION ENGINEERED
+            </div>
+
+          </div>
+
+
+          {/* Experience Badge */}
+
+          <div className="experience-badge">
+
+            <strong>21</strong>
+
+            <div>
+              <span>YEARS</span>
+              <small>OF EXCELLENCE</small>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
   );
 }

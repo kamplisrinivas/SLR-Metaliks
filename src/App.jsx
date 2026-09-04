@@ -65,6 +65,7 @@ function HomePage() {
         <SustainabilitySection />
         <NewsSection />
         <TestimonialsCTA />
+        <Footer />
       </div>
     </>
   );

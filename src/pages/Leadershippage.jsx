@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Leadershippage.css';
 import MDImage from '../images/MD.jpg';
-import Timblo from '../images/timblo.jpg';
+import at from '../images/at.png';
 import Rajat from '../images/Rajat.webp';
 import Misra from '../images/misra.jpg';
-import anil from '../images/anil.webp';
+import akj from '../images/akj.png';
 import Yogendra from '../images/Yogendra.png';
 import Gaur from '../images/Gaur.png';
 import Goel from '../images/Goel.png';
@@ -21,7 +21,7 @@ import anilb from '../images/anilb.png';
 import hirehal from '../images/hirehal.png';
 import krishnamoorthy from '../images/krishnamoorthy.png';
 import vn from '../images/vn.png';
-import cp from '../images/cp.png';
+import chandpasha from '../images/chandpasha.png';
 
 
 /*
@@ -91,7 +91,7 @@ During his school and college years, he was a nationally ranked badminton player
     experience: "27+ Years",
     linkedin: "#",
     email: "mailto:name@slrmetaliks.com",
-    photo: Timblo,
+    photo: at,
   },
 
   {
@@ -166,7 +166,7 @@ He is presently serving as Chairman of India Power Corporation Ltd.`,
     experience: "40+ Years",
     linkedin: "#",
     email: "mailto:name@slrmetaliks.com",
-    photo: anil,
+    photo: akj,
   },
 
   {
@@ -297,7 +297,7 @@ const LEADERSHIP = [
   {
     id: '20',
     name: 'Mr. Vivek Lakshkar',
-    designation: 'General Manager',
+    designation: 'RMS OPR-HEAD',
     department: 'RMS OPR',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
@@ -317,7 +317,7 @@ const LEADERSHIP = [
   {
     id: '22',
     name: 'Mr. Prakash Angadi',
-    designation: 'Sr. General Manager',
+    designation: 'QAD-HEAD',
     department: 'QAD',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
@@ -327,15 +327,36 @@ const LEADERSHIP = [
   {
     id: '23',
     name: 'Mr. Alok Agrawal',
-    designation: 'General Manager',
+    designation: 'Civil-HEAD',
     department: 'Civil',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
     linkedin: '#',
     photo: Alok,
   },
+  
   {
     id: '24',
+    name: 'Mr. Imtiaz Ali R Hirehal',
+    designation: 'POWER PLANT-HEAD',
+    department: 'POWER PLANT',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:	ir_hirehal@slrm.co.in',
+    linkedin: '#',
+    photo: hirehal,
+  },
+  {
+    id: '25',
+    name: 'Mr. Chandapasha  ',
+    designation: 'UTILITY-HEAD',
+    department: 'UTILITY',
+    location: 'Hospet, Karnataka',
+    email: 'mailto:chand@slrm.co.in',
+    linkedin: '#',
+    photo: chandpasha,
+  },
+  {
+    id: '26',
     name: 'Mr. Dhananjay Kumar',
     designation: 'HR-HEAD',
     department: 'HR and Admin',
@@ -345,39 +366,21 @@ const LEADERSHIP = [
     photo: Dj,
   },
   {
-    id: '25',
+    id: '27',
     name: 'Mr. Anil Kumar B',
-    designation: 'Assistant General Manager',
+    designation: 'MIS & IT-HEAD',
     department: 'MIS & IT',
     location: 'Hospet, Karnataka',
     email: 'mailto:misit@slrm.com',
     linkedin: '#',
     photo: anilb,
   },
-  {
-    id: '26',
-    name: 'Mr. Chandapasha  ',
-    designation: 'General Manager',
-    department: 'UTILITY',
-    location: 'Hospet, Karnataka',
-    email: 'mailto:chand@slrm.co.in',
-    linkedin: '#',
-    photo: cp,
-  },
-{
-    id: '27',
-    name: 'Mr. Imtiaz Ali R Hirehal',
-    designation: 'General Manager',
-    department: 'POWER PLANT',
-    location: 'Hospet, Karnataka',
-    email: 'mailto:	ir_hirehal@slrm.co.in',
-    linkedin: '#',
-    photo: hirehal,
-  },
+  
+
 {
     id: '28',
     name: 'Mr. Vijay',
-    designation: 'Senior Deputy General Manager',
+    designation: 'SECURITY-HEAD',
     department: 'SECURITY',
     location: 'Hospet, Karnataka',
     email: 'mailto:vijay_nehra@slrm.in',
@@ -510,6 +513,63 @@ function CountUp({ target, suffix = '' }) {
     </span>
   );
 }
+
+
+
+/* ---------- PREMIUM PAGE LOADER ---------- */
+
+function LeadershipLoader({ onComplete }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
+  return (
+    <div className="slr-page-loader" aria-label="Loading Leadership page">
+
+      <div className="slr-loader-content">
+
+        <div className="slr-loader-logo">
+
+          <div className="slr-loader-ring" />
+
+          <div className="slr-loader-ring-inner" />
+
+          <div className="slr-loader-mark">
+            <span>SLR</span>
+          </div>
+
+        </div>
+
+        <div className="slr-loader-eyebrow">
+          SLR Metaliks
+        </div>
+
+        <h1 className="slr-loader-title">
+          Leadership
+        </h1>
+
+        <div className="slr-loader-subtitle">
+          Inspiring Excellence
+        </div>
+
+        <div className="slr-loader-progress" />
+
+        <div className="slr-loader-dots">
+          <span />
+          <span />
+          <span />
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
 
 /* ---------- sections ---------- */
 
@@ -848,7 +908,7 @@ function ChairmanSpotlight() {
                 ))}
               </ul>
             </div>
-            <div className="slr-chairman-signature">{CHAIRMAN.name}</div>
+            {/* <div className="slr-chairman-signature">{CHAIRMAN.name}</div> */}
           </div>
         </Reveal>
       </div>

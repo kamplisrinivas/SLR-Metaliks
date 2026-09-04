@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Stats.css";
 
 const stats = [
@@ -11,6 +11,7 @@ const stats = [
     number: 0.7,
     suffix: "M+",
     label: "Tons Annual Capacity",
+    decimals: 1,
   },
   {
     number: 20,
@@ -24,34 +25,79 @@ const stats = [
   },
 ];
 
-function AnimatedNumber({ number, suffix }) {
+function AnimatedNumber({ number, suffix, decimals = 0, delay = 0 }) {
   const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    let start = 0;
-    const duration = 2500;
-    const intervalTime = 20;
-    const steps = duration / intervalTime;
-    const increment = number / steps;
+    const element = ref.current;
 
-    const timer = setInterval(() => {
-      start += increment;
+    if (!element) return;
 
-      if (start >= number) {
-        setCount(number);
-        clearInterval(timer);
-      } else {
-        setCount(start);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+        }
+      },
+      {
+        threshold: 0.4,
       }
-    }, intervalTime);
+    );
 
-    return () => clearInterval(timer);
-  }, [number]);
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+
+    let animationFrame;
+    let startTime = null;
+
+    const duration = 2200;
+
+    const timer = setTimeout(() => {
+      const animate = (currentTime) => {
+        if (!startTime) {
+          startTime = currentTime;
+        }
+
+        const elapsed = currentTime - startTime;
+
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Premium ease-out
+        const easedProgress =
+          1 - Math.pow(1 - progress, 4);
+
+        setCount(number * easedProgress);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          setCount(number);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [started, number, delay]);
 
   return (
-    <h2>
-      {number < 1 ? count.toFixed(1) : Math.floor(count)}
-      {suffix}
+    <h2 ref={ref}>
+      {count.toFixed(decimals)}
+      <span>{suffix}</span>
     </h2>
   );
 }
@@ -59,17 +105,56 @@ function AnimatedNumber({ number, suffix }) {
 export default function Stats() {
   return (
     <section className="stats">
+
+      <div className="stats-heading">
+        <span className="stats-line" />
+
+        <p>OUR IMPACT</p>
+
+        <span className="stats-line" />
+      </div>
+
       <div className="stats-container">
+
         {stats.map((item, index) => (
-          <div className="stat-card" key={index}>
-            <AnimatedNumber
-              number={item.number}
-              suffix={item.suffix}
-            />
-            <p>{item.label}</p>
+          <div
+            className="stat-card"
+            key={item.label}
+            style={{
+              "--delay": `${index * 120}ms`,
+            }}
+          >
+
+            {/* Top accent */}
+            <div className="stat-accent" />
+
+            {/* Background number */}
+            <span className="stat-bg-number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div className="stat-content">
+
+              <AnimatedNumber
+                number={item.number}
+                suffix={item.suffix}
+                decimals={item.decimals || 0}
+                delay={index * 150}
+              />
+
+              <p>{item.label}</p>
+
+              <div className="stat-progress">
+                <span />
+              </div>
+
+            </div>
+
           </div>
         ))}
+
       </div>
+
     </section>
   );
 }

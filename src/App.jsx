@@ -50,13 +50,17 @@ function ScrollToTop() {
 /* =========================================
    HOME PAGE
 ========================================= */
-
 function HomePage() {
   return (
     <>
+      {/* Fixed Hero */}
       <Hero />
 
-      <div className="content-wrapper">
+      {/* Space occupied by fixed Hero */}
+      <div className="hero-spacer" />
+
+      {/* Scrolling Home Content */}
+      <main className="content-wrapper">
         <Stats />
         <AboutSection />
         <ProductsSection />
@@ -65,78 +69,46 @@ function HomePage() {
         <SustainabilitySection />
         <NewsSection />
         <TestimonialsCTA />
-        <Footer />
-      </div>
+      </main>
     </>
   );
 }
 
-/* =========================================
-   APP
-========================================= */
+
 
 function App() {
   return (
     <BrowserRouter>
-
-      {/* Always move page to top when route changes */}
       <ScrollToTop />
 
       <Navbar />
 
       <Routes>
-
-        {/* HOME */}
         <Route path="/" element={<HomePage />} />
 
-        {/* ABOUT */}
         <Route path="/about" element={<Aboutpage />} />
-
-        {/* LEADERSHIP */}
         <Route path="/leadership" element={<Leadershippage />} />
-
-        {/* MILESTONE */}
         <Route path="/milestone" element={<Milestone />} />
-
-        {/* PRODUCTS */}
         <Route path="/products" element={<Products />} />
-
-        {/* APPLICATIONS */}
         <Route path="/applications" element={<Applications />} />
-
-        {/* PLANT */}
         <Route path="/plant" element={<Plant />} />
-
-        {/* AUTOMATION */}
         <Route path="/automation" element={<Automation />} />
-
-        {/* SUSTAINABILITY */}
         <Route path="/sustainability" element={<Sustainability />} />
-
-        {/* SOURCING */}
         <Route path="/sourcing" element={<Sourcing />} />
-
-        {/* CLIENTS */}
         <Route path="/clients" element={<Clients />} />
-
-        {/* CAREERS */}
         <Route path="/careers" element={<Careers />} />
-
-        {/* CONTACT */}
         <Route path="/contact" element={<ContactPage />} />
-
-        {/* REQUEST SAMPLE */}
         <Route
           path="/RequestSamplePage"
           element={<RequestSamplePage />}
         />
-
       </Routes>
 
+      {/* Footer is OUTSIDE Routes */}
       <Footer />
-
     </BrowserRouter>
   );
 }
+
 
 export default App;

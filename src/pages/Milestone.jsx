@@ -253,12 +253,12 @@ export default function TimelineExplorer() {
                   )}
                 </ul>
 
-                <div className="showcase-progress">
+                {/* <div className="showcase-progress">
                   Progress:
                   <span>
                     {activeMilestone.progress}%
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <motion.div

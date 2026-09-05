@@ -317,7 +317,7 @@ const LEADERSHIP = [
   {
     id: '22',
     name: 'Mr. Prakash Angadi',
-    designation: 'QAD-HEAD',
+    designation: 'QAD - HEAD',
     department: 'QAD',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
@@ -327,7 +327,7 @@ const LEADERSHIP = [
   {
     id: '23',
     name: 'Mr. Alok Agrawal',
-    designation: 'Civil-HEAD',
+    designation: 'Civil - HEAD',
     department: 'Civil',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
@@ -338,7 +338,7 @@ const LEADERSHIP = [
   {
     id: '24',
     name: 'Mr. Imtiaz Ali R Hirehal',
-    designation: 'POWER PLANT-HEAD',
+    designation: 'POWER PLANT - HEAD',
     department: 'POWER PLANT',
     location: 'Hospet, Karnataka',
     email: 'mailto:	ir_hirehal@slrm.co.in',
@@ -348,7 +348,7 @@ const LEADERSHIP = [
   {
     id: '25',
     name: 'Mr. Chandapasha  ',
-    designation: 'UTILITY-HEAD',
+    designation: 'UTILITY - HEAD',
     department: 'UTILITY',
     location: 'Hospet, Karnataka',
     email: 'mailto:chand@slrm.co.in',
@@ -358,7 +358,7 @@ const LEADERSHIP = [
   {
     id: '26',
     name: 'Mr. Dhananjay Kumar',
-    designation: 'HR-HEAD',
+    designation: 'HR - HEAD',
     department: 'HR and Admin',
     location: 'Hospet, Karnataka',
     email: 'mailto:name@slrmetaliks.com',
@@ -368,11 +368,11 @@ const LEADERSHIP = [
   {
     id: '27',
     name: 'Mr. Anil Kumar B',
-    designation: 'MIS & IT-HEAD',
+    designation: 'IT - HEAD',
     department: 'MIS & IT',
     location: 'Hospet, Karnataka',
     email: 'mailto:misit@slrm.com',
-    linkedin: '#',
+    linkedin: '#', 
     photo: anilb,
   },
   
@@ -380,7 +380,7 @@ const LEADERSHIP = [
 {
     id: '28',
     name: 'Mr. Vijay',
-    designation: 'SECURITY-HEAD',
+    designation: 'SECURITY - HEAD',
     department: 'SECURITY',
     location: 'Hospet, Karnataka',
     email: 'mailto:vijay_nehra@slrm.in',

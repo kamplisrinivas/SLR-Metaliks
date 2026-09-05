@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './Aboutpage.css';
 import './Contactpage.css';
 
+import bangaloreImage from "../images/bangalore.jpg";
+import gurugramImage from "../images/gurugram.jpg";
+import puneImage from "../images/pune.jpg";
+
+
+
 /*
   SLR Metaliks — Contact Us Page
 
@@ -13,73 +19,56 @@ import './Contactpage.css';
   - Responsive design
   - Product enquiry form validation
 */
-
 const ZONES = [
   {
-    id: 'south',
-    label: 'South Zone',
-    city: 'Bengaluru',
-    landmark: 'Vidhana Soudha',
+    id: "south",
+    label: "South Zone",
+    city: "Bengaluru",
+    landmark: "Vidhana Soudha",
     address:
-      'No. 2732, Darpana Square, 2nd Floor, 14th Main, Sahakarnagar, Bangalore-560 092.',
-    email: 'prasannakumar@slrm.in',
-    phone: '+91-9449-596155',
-
-    /*
-      Bengaluru — Vidhana Soudha
-    */
-    background:
-      'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1600&q=85',
+      "No. 2732, Darpana Square, 2nd Floor, 14th Main, Sahakarnagar, Bangalore-560 092.",
+    email: "prasannakumar@slrm.in",
+    phone: "+91-9449-596155",
+    background: bangaloreImage,
   },
 
   {
-    id: 'west',
-    label: 'West Zone',
-    city: 'Pune',
-    landmark: 'Shaniwar Wada',
+    id: "west",
+    label: "West Zone",
+    city: "Pune",
+    landmark: "Shaniwar Wada",
     address:
-      'No. 408 & 409, Lunkad Sky Station, Near HDFC Bank, Dutta Mandir Chowk, Viman Nagar, Pune – 411014',
-    email: 'prkulkarni@slrm.in',
-    phone: '+91-9011-066793',
-
-    /*
-      Pune — Shaniwar Wada
-    */
-    background:
-      'https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=1800&q=85',
+      "No. 408 & 409, Lunkad Sky Station, Near HDFC Bank, Dutta Mandir Chowk, Viman Nagar, Pune – 411014",
+    email: "prkulkarni@slrm.in",
+    phone: "+91-9011-066793",
+    background: puneImage,
   },
 
   {
-    id: 'north',
-    label: 'North Zone',
-    city: 'Gurugram',
-    landmark: 'Kingdom of Dreams',
+    id: "north",
+    label: "North Zone",
+    city: "Gurugram",
+    landmark: "Kingdom of Dreams",
     address:
-      'No. 708, 7th Floor (Gate No: 4), Ambience Mall Complex, NH – 8, Gurugram – 122002, Haryana',
-    email: 'panchanan.mishra@slrm.in',
-    phone: '+91-9555-355087',
-
-    /*
-      Gurugram / Delhi NCR
-    */
-    background:
-      'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1800&q=85',
+      "No. 708, 7th Floor (Gate No: 4), Ambience Mall Complex, NH – 8, Gurugram – 122002, Haryana",
+    email: "panchanan.mishra@slrm.in",
+    phone: "+91-9555-355087",
+    background: gurugramImage,
   },
 
   {
-    id: 'export',
-    label: 'Export',
-    city: 'Pune',
-    landmark: 'Pune Skyline',
+    id: "export",
+    label: "Export",
+    city: "Pune",
+    landmark: "Pune Skyline",
     address:
-      'No. 408 & 409, Lunkad Sky Station, Near HDFC Bank, Dutta Mandir Chowk, Viman Nagar, Pune – 411014',
-    email: 'ramesh@slrm.in',
-    phone: '+91-9449-867279',
-
-    background:
-      'https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=1800&q=85',
+      "No. 408 & 409, Lunkad Sky Station, Near HDFC Bank, Dutta Mandir Chowk, Viman Nagar, Pune – 411014",
+    email: "ramesh@slrm.in",
+    phone: "+91-9449-867279",
+    background: puneImage,
   },
 ];
+
 
 const PRODUCTS = [
   'Wire Rod (Round)',

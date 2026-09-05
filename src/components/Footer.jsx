@@ -8,7 +8,12 @@ export default function Footer() {
       <div className="footer-container">
 
         <div className="footer-brand">
-          <img src={logo} alt="SLR Metaliks Limited" />
+          <img
+  className="footer-logo"
+  src={logo}
+  alt="SLR Metaliks Limited"
+/>
+
           <p>Forging Strength. Building India's Future.</p>
         </div>
 
@@ -34,15 +39,19 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Contact</h4>
-          <p>Hospet, Karnataka</p>
-          <a href="mailto:info@slrmetaliks.com">
-            info@slrmetaliks.com
-          </a>
-          <a href="tel:+91-8394-294061">
-            +91-8394-294061 (Marketing)-228
-          </a>
-        </div>
+  <h4>Contact</h4>
+
+  <p>Hospet, Karnataka</p>
+
+  <a href="mailto:info@slrmetaliks.com">
+    info@slrmetaliks.com
+  </a>
+
+  <a href="tel:+918394294061">
+    +91-8394-294061 (Marketing)-228
+  </a>
+</div>
+
 
       </div>
 
